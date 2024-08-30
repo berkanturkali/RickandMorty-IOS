@@ -52,6 +52,23 @@
         }
       }
     },
+    "first_seen_in" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First Seen In:"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İlk Görünme:"
+          }
+        }
+      }
+    },
     "invalid_url_error_message" : {
       "extractionState" : "manual",
       "localizations" : {

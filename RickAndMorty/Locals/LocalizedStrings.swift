@@ -37,6 +37,10 @@ struct LocalizedStrings {
         return localizedString(for: "last_known_location")
     }
     
+    static var firstSeenIn: String {
+        return localizedString(for: "first_seen_in")
+    }
+    
     static func localizedString(for key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }

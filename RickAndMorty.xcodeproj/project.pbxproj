@@ -7,8 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB347FB22C82344600460C89 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB347FB12C82344600460C89 /* Localizable.xcstrings */; };
 		EB347FB62C8237C900460C89 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FB52C8237C900460C89 /* LocalizedStrings.swift */; };
+		EB347FC12C82527C00460C89 /* BaseApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FC02C82527C00460C89 /* BaseApiResponse.swift */; };
+		EB347FC32C8252F300460C89 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FC22C8252F300460C89 /* CharacterResponse.swift */; };
+		EB347FC52C8254A500460C89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FC42C8254A500460C89 /* Constants.swift */; };
+		EB347FCA2C82562900460C89 /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FC92C82562900460C89 /* CharacterService.swift */; };
+		EB347FCC2C8257D500460C89 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FCB2C8257D500460C89 /* NetworkError.swift */; };
+		EB347FCE2C8259E900460C89 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FCD2C8259E900460C89 /* ErrorHandler.swift */; };
+		EB347FD12C82609700460C89 /* CharactersScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FD02C82609700460C89 /* CharactersScreenViewModel.swift */; };
+		EB347FD32C82617300460C89 /* CharactersScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FD22C82617300460C89 /* CharactersScreen.swift */; };
+		EB347FD42C8263D400460C89 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB347FB12C82344600460C89 /* Localizable.xcstrings */; };
+		EB347FD62C8265C400460C89 /* CharacterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FD52C8265C400460C89 /* CharacterName.swift */; };
+		EB347FD82C8266D100460C89 /* CharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FD72C8266D100460C89 /* CharacterStatus.swift */; };
+		EB347FDA2C82682400460C89 /* LastKnownLocationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FD92C82682400460C89 /* LastKnownLocationSection.swift */; };
+		EB347FDC2C8269B900460C89 /* FirstSeenIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FDB2C8269B900460C89 /* FirstSeenIn.swift */; };
+		EB347FDE2C826A4500460C89 /* CharacterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FDD2C826A4500460C89 /* CharacterImage.swift */; };
 		EBD451022C7E35E500C51774 /* RickAndMortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD451012C7E35E500C51774 /* RickAndMortyApp.swift */; };
 		EBD451042C7E35E500C51774 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD451032C7E35E500C51774 /* ContentView.swift */; };
 		EBD451082C7E35E600C51774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD451072C7E35E600C51774 /* Assets.xcassets */; };
@@ -18,6 +31,19 @@
 /* Begin PBXFileReference section */
 		EB347FB12C82344600460C89 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB347FB52C8237C900460C89 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		EB347FC02C82527C00460C89 /* BaseApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiResponse.swift; sourceTree = "<group>"; };
+		EB347FC22C8252F300460C89 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
+		EB347FC42C8254A500460C89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EB347FC92C82562900460C89 /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
+		EB347FCB2C8257D500460C89 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EB347FCD2C8259E900460C89 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		EB347FD02C82609700460C89 /* CharactersScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersScreenViewModel.swift; sourceTree = "<group>"; };
+		EB347FD22C82617300460C89 /* CharactersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersScreen.swift; sourceTree = "<group>"; };
+		EB347FD52C8265C400460C89 /* CharacterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterName.swift; sourceTree = "<group>"; };
+		EB347FD72C8266D100460C89 /* CharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStatus.swift; sourceTree = "<group>"; };
+		EB347FD92C82682400460C89 /* LastKnownLocationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastKnownLocationSection.swift; sourceTree = "<group>"; };
+		EB347FDB2C8269B900460C89 /* FirstSeenIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSeenIn.swift; sourceTree = "<group>"; };
+		EB347FDD2C826A4500460C89 /* CharacterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImage.swift; sourceTree = "<group>"; };
 		EBD450FE2C7E35E500C51774 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD451012C7E35E500C51774 /* RickAndMortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyApp.swift; sourceTree = "<group>"; };
 		EBD451032C7E35E500C51774 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +65,9 @@
 		EB347FAC2C82236F00460C89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EB347FBF2C82526800460C89 /* base */,
+				EB347FBE2C82525E00460C89 /* characters */,
+				EB347FCB2C8257D500460C89 /* NetworkError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -46,7 +75,7 @@
 		EB347FAD2C82237500460C89 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EB347FBA2C824DB100460C89 /* home */,
+				EB347FBA2C824DB100460C89 /* characters */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -54,6 +83,7 @@
 		EB347FAE2C82237D00460C89 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EB347FCF2C82606F00460C89 /* characters */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -61,6 +91,9 @@
 		EB347FAF2C822E9D00460C89 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				EB347FC62C8255FF00460C89 /* character */,
+				EB347FC42C8254A500460C89 /* Constants.swift */,
+				EB347FCD2C8259E900460C89 /* ErrorHandler.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -73,18 +106,19 @@
 			path = Locals;
 			sourceTree = "<group>";
 		};
-		EB347FBA2C824DB100460C89 /* home */ = {
+		EB347FBA2C824DB100460C89 /* characters */ = {
 			isa = PBXGroup;
 			children = (
 				EB347FBD2C824DC800460C89 /* component */,
 				EB347FBC2C824DBD00460C89 /* screen */,
 			);
-			path = home;
+			path = characters;
 			sourceTree = "<group>";
 		};
 		EB347FBC2C824DBD00460C89 /* screen */ = {
 			isa = PBXGroup;
 			children = (
+				EB347FD22C82617300460C89 /* CharactersScreen.swift */,
 			);
 			path = screen;
 			sourceTree = "<group>";
@@ -92,8 +126,45 @@
 		EB347FBD2C824DC800460C89 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				EB347FD52C8265C400460C89 /* CharacterName.swift */,
+				EB347FD72C8266D100460C89 /* CharacterStatus.swift */,
+				EB347FD92C82682400460C89 /* LastKnownLocationSection.swift */,
+				EB347FDB2C8269B900460C89 /* FirstSeenIn.swift */,
+				EB347FDD2C826A4500460C89 /* CharacterImage.swift */,
 			);
 			path = component;
+			sourceTree = "<group>";
+		};
+		EB347FBE2C82525E00460C89 /* characters */ = {
+			isa = PBXGroup;
+			children = (
+				EB347FC22C8252F300460C89 /* CharacterResponse.swift */,
+			);
+			path = characters;
+			sourceTree = "<group>";
+		};
+		EB347FBF2C82526800460C89 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				EB347FC02C82527C00460C89 /* BaseApiResponse.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		EB347FC62C8255FF00460C89 /* character */ = {
+			isa = PBXGroup;
+			children = (
+				EB347FC92C82562900460C89 /* CharacterService.swift */,
+			);
+			path = character;
+			sourceTree = "<group>";
+		};
+		EB347FCF2C82606F00460C89 /* characters */ = {
+			isa = PBXGroup;
+			children = (
+				EB347FD02C82609700460C89 /* CharactersScreenViewModel.swift */,
+			);
+			path = characters;
 			sourceTree = "<group>";
 		};
 		EBD450F52C7E35E500C51774 = {
@@ -196,9 +267,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB347FD42C8263D400460C89 /* Localizable.xcstrings in Resources */,
 				EBD4510B2C7E35E600C51774 /* Preview Assets.xcassets in Resources */,
 				EBD451082C7E35E600C51774 /* Assets.xcassets in Resources */,
-				EB347FB22C82344600460C89 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +280,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB347FD62C8265C400460C89 /* CharacterName.swift in Sources */,
+				EB347FC12C82527C00460C89 /* BaseApiResponse.swift in Sources */,
+				EB347FD82C8266D100460C89 /* CharacterStatus.swift in Sources */,
+				EB347FDC2C8269B900460C89 /* FirstSeenIn.swift in Sources */,
+				EB347FCC2C8257D500460C89 /* NetworkError.swift in Sources */,
+				EB347FDA2C82682400460C89 /* LastKnownLocationSection.swift in Sources */,
 				EBD451042C7E35E500C51774 /* ContentView.swift in Sources */,
+				EB347FCA2C82562900460C89 /* CharacterService.swift in Sources */,
+				EB347FC32C8252F300460C89 /* CharacterResponse.swift in Sources */,
 				EB347FB62C8237C900460C89 /* LocalizedStrings.swift in Sources */,
+				EB347FCE2C8259E900460C89 /* ErrorHandler.swift in Sources */,
+				EB347FD32C82617300460C89 /* CharactersScreen.swift in Sources */,
 				EBD451022C7E35E500C51774 /* RickAndMortyApp.swift in Sources */,
+				EB347FD12C82609700460C89 /* CharactersScreenViewModel.swift in Sources */,
+				EB347FC52C8254A500460C89 /* Constants.swift in Sources */,
+				EB347FDE2C826A4500460C89 /* CharacterImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
