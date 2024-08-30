@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BaseApiResponse<T: Codable, Identifiable>: Codable {
+struct BaseApiResponse<T: Codable>: Codable {
     
     let info: Info
     let results: [T]

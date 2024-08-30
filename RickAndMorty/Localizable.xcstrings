@@ -1,10 +1,41 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Favorites" : {
-
+    "characters" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Characters"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karakterler"
+          }
+        }
+      }
     },
-    "favorites_tab_view_label" : {
+    "episodes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Episodes"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bölümler"
+          }
+        }
+      }
+    },
+    "favorites" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -12,7 +43,12 @@
             "state" : "translated",
             "value" : "Favorites"
           }
-        },
+        }
+      }
+    },
+    "Favorites" : {
+      "extractionState" : "stale",
+      "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22,41 +58,63 @@
       }
     },
     "Home Screen" : {
-
-    },
-    "home_tab_view_label" : {
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Home"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ana Sayfa"
+            "value" : "Home Screen"
           }
         }
       }
     },
-    "Search" : {
-
-    },
-    "search_tab_view_label" : {
+    "invalid_url_error_message" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Search"
+            "value" : "The URL is invalid:"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ara"
+            "value" : "Geçersiz URL: "
+          }
+        }
+      }
+    },
+    "locations" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locations"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokasyonlar"
+          }
+        }
+      }
+    },
+    "unknown_network_exception_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir şeyler ters gitti."
           }
         }
       }

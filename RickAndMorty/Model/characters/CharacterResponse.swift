@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterResponse: Codable, Identifiable {
+struct CharacterResponse: Codable, Identifiable, Hashable {
     let id: Int?
     let name: String?
     let status: String?
@@ -20,7 +20,7 @@ struct CharacterResponse: Codable, Identifiable {
     let url: String?
     let created: String?
     
-    struct Origin: Codable {
+    struct Origin: Codable, Hashable {
         let name: String?
         let url: String?
     }

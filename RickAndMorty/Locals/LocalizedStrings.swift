@@ -9,16 +9,28 @@ import Foundation
 
 struct LocalizedStrings {
     
-    static var home: String {
-        return localizedString(for: "home_tab_view_label")
+    static var characters: String {
+        return localizedString(for: "characters")
     }
     
-    static var search: String {
-        return localizedString(for: "search_tab_view_label")
+    static var locations: String {
+        return localizedString(for: "locations")
+    }
+    
+    static var episodes: String {
+        return localizedString(for: "episodes")
     }
     
     static var favorites: String {
-        return localizedString(for: "favorites_tab_view_label")
+        return localizedString(for: "favorites")
+    }
+    
+    static var unknownNetworkErrorMessage: String {
+        return localizedString(for: "unknown_network_exception_message")
+    }
+    
+    static var invalidURLErrorMessage: String {
+        return localizedString(for: "invalid_url_error_message")
     }
     
     static func localizedString(for key: String) -> String {

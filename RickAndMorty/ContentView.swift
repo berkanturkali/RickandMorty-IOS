@@ -18,11 +18,13 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    Text("Home Screen")
+                    Text(
+                        LocalizedStrings.characters
+                    )
                 }
             }
             .tabItem { Label(
-                LocalizedStrings.home,
+                LocalizedStrings.characters,
                 systemImage: "house"
             )
         }
@@ -30,18 +32,35 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    Text("Search")
+                    Text(
+                        LocalizedStrings.locations
+                    )
                 }
             }
             .tabItem { Label(
-                LocalizedStrings.search,
+                LocalizedStrings.locations,
                 systemImage: "magnifyingglass"
             ) }
             
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    Text("Favorites")
+                    Text(
+                        LocalizedStrings.episodes
+                    )
+                }
+            }
+            .tabItem { Label(
+                LocalizedStrings.episodes,
+                systemImage: "star"
+            ) }
+            
+            NavigationView {
+                ZStack {
+                    Color.background.ignoresSafeArea()
+                    Text(
+                        LocalizedStrings.favorites
+                    )
                 }
             }
             .tabItem { Label(
@@ -50,7 +69,7 @@ struct ContentView: View {
             ) }
         }
         .accentColor(Color.tabViewSelectedItem)
-    
+        
     }
 }
 
