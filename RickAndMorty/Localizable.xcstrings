@@ -43,27 +43,11 @@
             "state" : "translated",
             "value" : "Favorites"
           }
-        }
-      }
-    },
-    "Favorites" : {
-      "extractionState" : "stale",
-      "localizations" : {
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favoriler"
-          }
-        }
-      }
-    },
-    "Home Screen" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Home Screen"
           }
         }
       }
@@ -81,6 +65,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Geçersiz URL: "
+          }
+        }
+      }
+    },
+    "last_known_location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last Known Location:"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son Lokasyon:"
           }
         }
       }

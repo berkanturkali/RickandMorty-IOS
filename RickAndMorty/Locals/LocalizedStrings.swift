@@ -33,6 +33,10 @@ struct LocalizedStrings {
         return localizedString(for: "invalid_url_error_message")
     }
     
+    static var lastKnownLocation: String {
+        return localizedString(for: "last_known_location")
+    }
+    
     static func localizedString(for key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }
