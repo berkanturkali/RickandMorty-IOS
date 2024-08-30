@@ -6,13 +6,37 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CharacterImage: View {
+    
+    let imageUrl: String?
+    
+    let imageHeight: CGFloat = 150
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        if let imageUrl {
+            let url = URL(string: imageUrl)
+            WebImage(url: url)
+                .resizable()
+                .indicator(.activity)
+                .frame(height: imageHeight)
+                .aspectRatio(contentMode: .fill)
+            
+        } else {
+            Image(systemName: "photo")
+                .frame(height: imageHeight)
+                .scaledToFit()
+                .foregroundColor(.onBackground)
+        }
+        
     }
 }
 
 #Preview {
-    CharacterImage()
+    VStack {
+        CharacterImage(imageUrl: nil)
+        CharacterImage(imageUrl: "https://picsum.photos/200/300")
+    }
 }
