@@ -83,8 +83,7 @@ struct CharacterResponse: Codable, Identifiable, Hashable {
                 name: "Earth",
                 url: ""
             ),
-//            image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-            image: nil,
+            image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
             episode: [
                 "https://rickandmortyapi.com/api/episode/1",
                 "https://rickandmortyapi.com/api/episode/2"
