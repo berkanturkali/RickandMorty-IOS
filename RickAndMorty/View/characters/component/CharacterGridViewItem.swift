@@ -13,9 +13,7 @@ struct CharacterGridViewItem: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.backgroundSecondary)
-                .stroke(.white, lineWidth: 1)
+            RoundedRectangleBackground()
             
             VStack(spacing: 12) {
                 
@@ -28,6 +26,7 @@ struct CharacterGridViewItem: View {
                 
                 if let statusAndSpecies = character.statusAndSpecies {
                     CharacterStatus(status: statusAndSpecies, statusColor: character.statusColor)
+                    
                 }
             }
             .padding(.vertical)
@@ -39,3 +38,4 @@ struct CharacterGridViewItem: View {
 #Preview {
     CharacterGridViewItem(character: CharacterResponse.mockCharacter)
 }
+

@@ -12,9 +12,7 @@ struct CharacterView: View {
     var body: some View {
         
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.backgroundSecondary)
-                .stroke(.white, lineWidth: 1)
+            RoundedRectangleBackground()
             
             HStack(spacing: 12) {
                 CharacterImage(imageUrl: character.image)
@@ -22,7 +20,7 @@ struct CharacterView: View {
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 
                 
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 4) {
                     CharacterName(
                         name: character.name ?? ""
                     )
@@ -44,11 +42,13 @@ struct CharacterView: View {
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
                 
+                
             }
             .padding(.horizontal)
         }
-    
-        .frame(height: 160)        
+        .frame(height: 160) 
+
+        
     }
 }
 

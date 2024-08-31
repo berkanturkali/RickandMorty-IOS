@@ -13,26 +13,41 @@ struct CharactersScreen: View {
     
     var body: some View {
         GeometryReader { geometry in
+            let isLargeScreen = geometry.size.width > 400
             ZStack {
                 Color.background.ignoresSafeArea()
                 ScrollView {
-                    if(geometry.size.width > 400) {
-                        let columns = Array(
-                            repeating: GridItem(
-                                .flexible(),
-                                spacing: 20
-                            ),
-                            count: min(
-                                5,
-                                Int(
-                                    geometry.size.width / 150
+                    VStack(spacing: 16) {
+                        
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                            .font(isLargeScreen ? .system(size: 42) : .title)
+                            .padding(.horizontal)
+                            .padding(.vertical, 4)
+                            .foregroundColor(.tabViewSelectedItem)
+                        
+                        Divider()
+                            .padding(.horizontal)
+                        
+                        
+                        if(isLargeScreen) {
+                            let columns = Array(
+                                repeating: GridItem(
+                                    .flexible(),
+                                    spacing: 20
+                                ),
+                                count: min(
+                                    5,
+                                    Int(
+                                        geometry.size.width / 150
+                                    )
                                 )
                             )
-                        )
-                        characterGridView(columns: columns)
-                        
-                    } else {
-                        characterVerticalListView()
+                            characterGridView(columns: columns)
+                            
+                        } else {
+                            characterVerticalListView()
+                        }
                     }
                 }
                 .padding(.horizontal, 4)

@@ -1,0 +1,15 @@
+//
+//  FilterItem.swift
+//  RickAndMorty
+//
+//  Created by Berkan Turkali on 31.08.2024.
+//
+
+import Foundation
+
+
+struct FilterItem {
+    let name: String
+    let value: String
+    var icon: String? = nil
+}
