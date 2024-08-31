@@ -12,6 +12,8 @@
 		EB02A7172C83703C008D820E /* FilterMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A7162C83703C008D820E /* FilterMenu.swift */; };
 		EB02A71C2C83785F008D820E /* FiltersScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A71B2C83785F008D820E /* FiltersScreen.swift */; };
 		EB02A71E2C837872008D820E /* FilterMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A71D2C837872008D820E /* FilterMenuItem.swift */; };
+		EB02A7202C837C42008D820E /* FilterMenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A71F2C837C42008D820E /* FilterMenuScreen.swift */; };
+		EB02A7232C838372008D820E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A7222C838372008D820E /* BackButton.swift */; };
 		EB347FB62C8237C900460C89 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FB52C8237C900460C89 /* LocalizedStrings.swift */; };
 		EB347FC12C82527C00460C89 /* BaseApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FC02C82527C00460C89 /* BaseApiResponse.swift */; };
 		EB347FC32C8252F300460C89 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FC22C8252F300460C89 /* CharacterResponse.swift */; };
@@ -46,6 +48,8 @@
 		EB02A7162C83703C008D820E /* FilterMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenu.swift; sourceTree = "<group>"; };
 		EB02A71B2C83785F008D820E /* FiltersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersScreen.swift; sourceTree = "<group>"; };
 		EB02A71D2C837872008D820E /* FilterMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuItem.swift; sourceTree = "<group>"; };
+		EB02A71F2C837C42008D820E /* FilterMenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuScreen.swift; sourceTree = "<group>"; };
+		EB02A7222C838372008D820E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		EB347FB12C82344600460C89 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB347FB52C8237C900460C89 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		EB347FC02C82527C00460C89 /* BaseApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiResponse.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				EB02A71B2C83785F008D820E /* FiltersScreen.swift */,
+				EB02A71F2C837C42008D820E /* FilterMenuScreen.swift */,
 			);
 			path = screen;
 			sourceTree = "<group>";
@@ -107,6 +112,14 @@
 			isa = PBXGroup;
 			children = (
 				EB02A71D2C837872008D820E /* FilterMenuItem.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		EB02A7212C838367008D820E /* components */ = {
+			isa = PBXGroup;
+			children = (
+				EB02A7222C838372008D820E /* BackButton.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -125,6 +138,7 @@
 		EB347FAD2C82237500460C89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB02A7212C838367008D820E /* components */,
 				EB02A7182C837834008D820E /* filters */,
 				EB347FBA2C824DB100460C89 /* characters */,
 			);
@@ -361,6 +375,7 @@
 				EB347FE32C827F4400460C89 /* CharacterView.swift in Sources */,
 				EB347FE52C82815100460C89 /* Status.swift in Sources */,
 				EB347FCC2C8257D500460C89 /* NetworkError.swift in Sources */,
+				EB02A7202C837C42008D820E /* FilterMenuScreen.swift in Sources */,
 				EB347FDA2C82682400460C89 /* LastKnownLocationSection.swift in Sources */,
 				EBD451042C7E35E500C51774 /* ContentView.swift in Sources */,
 				EB347FEC2C82AE8E00460C89 /* FilterItem.swift in Sources */,
@@ -371,6 +386,7 @@
 				EB02A7172C83703C008D820E /* FilterMenu.swift in Sources */,
 				EB347FE72C82A09F00460C89 /* CharacterGridViewItem.swift in Sources */,
 				EB02A71E2C837872008D820E /* FilterMenuItem.swift in Sources */,
+				EB02A7232C838372008D820E /* BackButton.swift in Sources */,
 				EB347FB62C8237C900460C89 /* LocalizedStrings.swift in Sources */,
 				EB347FCE2C8259E900460C89 /* ErrorHandler.swift in Sources */,
 				EB02A71C2C83785F008D820E /* FiltersScreen.swift in Sources */,

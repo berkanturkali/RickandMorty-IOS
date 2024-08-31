@@ -52,6 +52,23 @@
         }
       }
     },
+    "filters" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filters"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Filtreler"
+          }
+        }
+      }
+    },
     "first_seen_in" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -136,9 +153,6 @@
           }
         }
       }
-    },
-    "Hello, World!" : {
-
     },
     "invalid_url_error_message" : {
       "extractionState" : "manual",

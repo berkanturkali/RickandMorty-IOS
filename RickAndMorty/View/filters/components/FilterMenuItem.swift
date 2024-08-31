@@ -10,12 +10,14 @@ import SwiftUI
 struct FilterMenuItem: View {
     
     let filterMenu: FilterMenu
+    
+    let onFilterMenuItemClick: (FilterMenu) -> Void
     var body: some View {
         VStack {
             Divider()
             HStack {
                 Text(filterMenu.title)
-                    .font(.title3)
+                    .font(.headline)
                 
                 Spacer()
                 if let name = filterMenu.selectedValue?.name {
@@ -30,6 +32,9 @@ struct FilterMenuItem: View {
             .padding(.vertical, 4)
             Divider()
         }
+        .onTapGesture {
+            onFilterMenuItemClick(filterMenu)
+        }
     }
 }
 
@@ -40,6 +45,7 @@ struct FilterMenuItem: View {
             selectedValue: FilterItem.mockFilterItem,
             filters: []
             
-        )
+        ),
+        onFilterMenuItemClick: { _ in }
     )
 }
