@@ -69,9 +69,6 @@
         }
       }
     },
-    "Filters" : {
-
-    },
     "first_seen_in" : {
       "extractionState" : "manual",
       "localizations" : {

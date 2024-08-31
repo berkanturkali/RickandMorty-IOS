@@ -8,11 +8,51 @@
 import SwiftUI
 
 struct FiltersScreen: View {
+    
+    @State var isCheckMarkActive: Bool = false
+    @State var selectedFilters: [FilterItem] = []
+    let title: String
+    let filters: [FilterItem]
+    
     var body: some View {
-        return Text("Filters")
+        
+        ScrollView {
+            LazyVStack {
+                ZStack {
+                    BackButton()
+                    
+                    Image(systemName: "checkmark")
+                        .foregroundColor(isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                    
+                    Text(title)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.onBackground)
+                    
+                }
+                .padding(.horizontal)
+                ForEach(filters.indices, id: \.self) { index in
+                    FilterItemView(filterItem: filters[index]) { item in
+                        let selectedFiltersContainsTheItem = selectedFilters.contains { filterItem in
+                            filterItem.name == item.name
+                        }
+                        if(selectedFiltersContainsTheItem) {
+                            let indexOfTheItem = selectedFilters.firstIndex { filterItem in
+                                filterItem.name == item.name
+                            }
+                            selectedFilters.remove(at: indexOfTheItem!)
+                        } else {
+                            selectedFilters.append(item)
+                        }
+                        isCheckMarkActive = !selectedFilters.isEmpty
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    FiltersScreen()
+    FiltersScreen(title: LocalizedStrings.filters, filters: CharacterFilters.filters.first!.filters)
 }

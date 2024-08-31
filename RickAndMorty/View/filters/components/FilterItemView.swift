@@ -10,6 +10,8 @@ import SwiftUI
 struct FilterItemView: View {
     @State var isSelected: Bool = false
     let filterItem: FilterItem
+    
+    let onFilterItemClick: (FilterItem) -> Void
     var body: some View {
         VStack {
             Divider()
@@ -34,6 +36,7 @@ struct FilterItemView: View {
         .contentShape(Rectangle())
         .onTapGesture {
             isSelected.toggle()
+            onFilterItemClick(filterItem)
         }
     }
 }
@@ -41,5 +44,5 @@ struct FilterItemView: View {
 #Preview {
     FilterItemView(
         filterItem: FilterItem.mockFilterItem
-    )
+    ) { _ in }
 }
