@@ -12,7 +12,7 @@ struct FirstSeenIn: View {
     let firstSeenIn: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 4) {
             Text(LocalizedStrings.firstSeenIn)
                 .font(.callout)
                 .fontWeight(.semibold)

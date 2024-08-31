@@ -12,22 +12,21 @@ struct CharacterImage: View {
     
     let imageUrl: String?
     
-    let imageHeight: CGFloat = 150
-    
     var body: some View {
         
         if let imageUrl {
             let url = URL(string: imageUrl)
             WebImage(url: url)
                 .resizable()
-                .indicator(.activity)
-                .frame(height: imageHeight)
-                .aspectRatio(contentMode: .fill)
+                .scaledToFit()
+                .transition(.fade(duration: 0.5))
+            
             
         } else {
             Image(systemName: "photo")
-                .frame(height: imageHeight)
+                .resizable()
                 .scaledToFit()
+                .padding()
                 .foregroundColor(.onBackground)
         }
         

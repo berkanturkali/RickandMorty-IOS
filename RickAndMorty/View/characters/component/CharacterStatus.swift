@@ -14,9 +14,11 @@ struct CharacterStatus: View {
     
     var body: some View {
         HStack {
-            Circle()
-                .fill(statusColor)
-                .frame(width: 15, height: 15)
+            if(statusColor != Color.clear) {
+                Circle()
+                    .fill(statusColor)
+                    .frame(width: 15, height: 15)
+            }
             
             Text(status)
                 .font(.callout)

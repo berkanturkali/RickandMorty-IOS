@@ -15,7 +15,7 @@ struct CharacterName: View {
         Text(name)
             .foregroundColor(Color.onBackground)
             .bold()
-            .font(.title2)
+            .font(.title3)
             .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
     }
 }

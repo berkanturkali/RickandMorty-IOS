@@ -11,7 +11,7 @@ struct LastKnownLocationSection: View {
     
     let lastKnownLocation: String
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 4) {
             Text(LocalizedStrings.lastKnownLocation)
                 .font(.callout)
                 .fontWeight(.semibold)
