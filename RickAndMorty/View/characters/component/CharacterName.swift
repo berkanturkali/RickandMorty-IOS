@@ -17,6 +17,7 @@ struct CharacterName: View {
             .bold()
             .font(.headline)
             .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+            .multilineTextAlignment(.center)
     }
 }
 
