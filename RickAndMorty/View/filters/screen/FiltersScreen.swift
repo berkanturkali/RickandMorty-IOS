@@ -9,13 +9,7 @@ import SwiftUI
 
 struct FiltersScreen: View {
     var body: some View {
-        Image(systemName: "chevron.left")
-            .padding(8)
-            .background(Color.onBackground.opacity(0.15))
-            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
-            .foregroundColor(Color.onBackground)
+        return Text("Filters")
     }
 }
 

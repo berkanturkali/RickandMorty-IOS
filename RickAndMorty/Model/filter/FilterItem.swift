@@ -15,6 +15,6 @@ struct FilterItem {
     
     
     static var mockFilterItem: FilterItem {
-        FilterItem(name: StatusFilter.alive.localizedDescription, value: "\(StatusFilter.alive)")
+        FilterItem(name: StatusFilter.alive.localizedDescription, value: "\(StatusFilter.alive)", icon: "⚦")
     }
 }
