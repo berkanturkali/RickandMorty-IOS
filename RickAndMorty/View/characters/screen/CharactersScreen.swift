@@ -15,12 +15,14 @@ struct CharactersScreen: View {
         ZStack {
             Color.background.ignoresSafeArea()
             ScrollView {
-                LazyVStack {
+                LazyVStack(spacing: 16) {
                     ForEach(viewModel.characters, id:\.self) { character in
-                        Text(character.name!)
+                        CharacterView(character: character)
                     }
                 }
             }
+            .padding(.horizontal, 4)
+            .scrollIndicators(.hidden)
         }
     }
 }

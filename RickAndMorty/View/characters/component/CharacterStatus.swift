@@ -17,13 +17,13 @@ struct CharacterStatus: View {
             if(statusColor != Color.clear) {
                 Circle()
                     .fill(statusColor)
-                    .frame(width: 15, height: 15)
+                    .frame(width: 10, height: 10)
             }
             
             Text(status)
-                .font(.callout)
                 .foregroundColor(Color.onBackground)
         }
+        .font(.subheadline)
     }
 }
 

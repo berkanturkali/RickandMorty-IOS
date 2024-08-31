@@ -18,9 +18,7 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    Text(
-                        LocalizedStrings.characters
-                    )
+                    CharactersScreen()
                 }
             }
             .tabItem { Label(

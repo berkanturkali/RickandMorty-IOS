@@ -13,17 +13,17 @@ struct LastKnownLocationSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(LocalizedStrings.lastKnownLocation)
-                .font(.callout)
                 .fontWeight(.semibold)
-                .foregroundColor(Color.backgroundSecondary)
+                .foregroundColor(Color.onBackgroundSecondary)
             
             Text(
                 lastKnownLocation
             )
-            .font(.callout)
+            
             .foregroundColor(Color.onBackground)
             
         }
+        .font(.subheadline)
     }
 }
 
