@@ -10,6 +10,8 @@
 		EB02A7132C835E09008D820E /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A7122C835E09008D820E /* Gender.swift */; };
 		EB02A7152C836770008D820E /* StatusFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A7142C836770008D820E /* StatusFilter.swift */; };
 		EB02A7172C83703C008D820E /* FilterMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A7162C83703C008D820E /* FilterMenu.swift */; };
+		EB02A71C2C83785F008D820E /* FiltersScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A71B2C83785F008D820E /* FiltersScreen.swift */; };
+		EB02A71E2C837872008D820E /* FilterMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A71D2C837872008D820E /* FilterMenuItem.swift */; };
 		EB347FB62C8237C900460C89 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FB52C8237C900460C89 /* LocalizedStrings.swift */; };
 		EB347FC12C82527C00460C89 /* BaseApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FC02C82527C00460C89 /* BaseApiResponse.swift */; };
 		EB347FC32C8252F300460C89 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB347FC22C8252F300460C89 /* CharacterResponse.swift */; };
@@ -42,6 +44,8 @@
 		EB02A7122C835E09008D820E /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		EB02A7142C836770008D820E /* StatusFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusFilter.swift; sourceTree = "<group>"; };
 		EB02A7162C83703C008D820E /* FilterMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenu.swift; sourceTree = "<group>"; };
+		EB02A71B2C83785F008D820E /* FiltersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersScreen.swift; sourceTree = "<group>"; };
+		EB02A71D2C837872008D820E /* FilterMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuItem.swift; sourceTree = "<group>"; };
 		EB347FB12C82344600460C89 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB347FB52C8237C900460C89 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		EB347FC02C82527C00460C89 /* BaseApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiResponse.swift; sourceTree = "<group>"; };
@@ -82,6 +86,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB02A7182C837834008D820E /* filters */ = {
+			isa = PBXGroup;
+			children = (
+				EB02A71A2C83784A008D820E /* components */,
+				EB02A7192C837842008D820E /* screen */,
+			);
+			path = filters;
+			sourceTree = "<group>";
+		};
+		EB02A7192C837842008D820E /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				EB02A71B2C83785F008D820E /* FiltersScreen.swift */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		EB02A71A2C83784A008D820E /* components */ = {
+			isa = PBXGroup;
+			children = (
+				EB02A71D2C837872008D820E /* FilterMenuItem.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		EB347FAC2C82236F00460C89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +125,7 @@
 		EB347FAD2C82237500460C89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB02A7182C837834008D820E /* filters */,
 				EB347FBA2C824DB100460C89 /* characters */,
 			);
 			path = View;
@@ -340,8 +370,10 @@
 				EB347FC32C8252F300460C89 /* CharacterResponse.swift in Sources */,
 				EB02A7172C83703C008D820E /* FilterMenu.swift in Sources */,
 				EB347FE72C82A09F00460C89 /* CharacterGridViewItem.swift in Sources */,
+				EB02A71E2C837872008D820E /* FilterMenuItem.swift in Sources */,
 				EB347FB62C8237C900460C89 /* LocalizedStrings.swift in Sources */,
 				EB347FCE2C8259E900460C89 /* ErrorHandler.swift in Sources */,
+				EB02A71C2C83785F008D820E /* FiltersScreen.swift in Sources */,
 				EB347FE92C82AB3600460C89 /* RoundedRectangleBackground.swift in Sources */,
 				EB347FD32C82617300460C89 /* CharactersScreen.swift in Sources */,
 				EBD451022C7E35E500C51774 /* RickAndMortyApp.swift in Sources */,
