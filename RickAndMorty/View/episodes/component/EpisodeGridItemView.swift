@@ -12,7 +12,7 @@ struct EpisodeGridItemView: View {
     let episode: EpisodeResponse
     
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(alignment: .center, spacing: 16) {
             Image(systemName: "movieclapper")
                 .font(.title2)
                 .foregroundColor(Color.accentColor)
@@ -38,6 +38,7 @@ struct EpisodeGridItemView: View {
             
         }
         .padding(.vertical, 24)
+        .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
         .overlay {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.clear)
@@ -46,6 +47,7 @@ struct EpisodeGridItemView: View {
                 .cornerRadius(20)
         }
         .padding()
+    
         
     }
     
@@ -56,6 +58,7 @@ struct EpisodeGridItemView: View {
             .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
             .foregroundColor(Color.onBackground)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+            .multilineTextAlignment(.center)
     }
 }
 

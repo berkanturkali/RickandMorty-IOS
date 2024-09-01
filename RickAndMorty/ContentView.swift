@@ -35,20 +35,18 @@ struct ContentView: View {
             }
             .tabItem { Label(
                 LocalizedStrings.locations,
-                systemImage: "magnifyingglass"
+                systemImage: "mappin.and.ellipse"
             ) }
             
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    Text(
-                        LocalizedStrings.episodes
-                    )
+                    EpisodesScreen()
                 }
             }
             .tabItem { Label(
                 LocalizedStrings.episodes,
-                systemImage: "star"
+                systemImage: "movieclapper"
             ) }
             
             NavigationView {

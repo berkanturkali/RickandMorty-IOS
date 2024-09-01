@@ -13,11 +13,47 @@ struct EpisodesScreen: View {
     
     
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(viewModel.episodes, id: \.self) { episode in
+        GeometryReader { geometry in
+            let isLargeScreen = geometry.size.width > 400
+            ZStack {
+                Color.background.ignoresSafeArea()
+                ScrollView {
+                    
+                    if(isLargeScreen) {
+                        let columns = Array(
+                            repeating: GridItem(
+                                .flexible(),
+                                spacing: 10
+                            ),
+                            count: min(
+                                4,
+                                Int(
+                                    geometry.size.width / 150
+                                )
+                            )
+                        )
+                        episodesGridView(columns: columns)
                         
+                    } else {
+                        episodesListView()
+                    }
                 }
+            }
+        }
+    }
+    
+    func episodesGridView(columns: [GridItem]) -> some View {
+        LazyVGrid(columns: columns) {
+            ForEach(viewModel.episodes, id: \.self) { episode in
+                EpisodeGridItemView(episode: episode)
+            }
+        }
+    }
+    
+    func episodesListView() -> some View {
+        LazyVStack(spacing: 16) {
+            ForEach(viewModel.episodes, id:\.self) { episode in
+                EpisodeView(episode: episode)
             }
         }
     }
