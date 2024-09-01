@@ -11,7 +11,6 @@ struct FilterMenuItem: View {
     
     let filterMenu: FilterMenu
     
-    let onFilterMenuItemClick: (FilterMenu) -> Void
     var body: some View {
         VStack {
             Divider()
@@ -20,11 +19,9 @@ struct FilterMenuItem: View {
                     .font(.headline)
                 
                 Spacer()
-                if let name = filterMenu.selectedValue?.name {
-                    Text(name)
-                        .font(.callout)
-                        .foregroundColor(Color.onBackgroundSecondary)
-                }
+                Text(mapSelectedFiltersToString())
+                    .font(.callout)
+                    .foregroundColor(Color.onBackgroundSecondary)
             }
             .fontWeight(.semibold)
             .foregroundColor(Color.onBackground)
@@ -32,9 +29,12 @@ struct FilterMenuItem: View {
             .padding(.vertical, 4)
             Divider()
         }
-        .onTapGesture {
-            onFilterMenuItemClick(filterMenu)
-        }
+    }
+    
+    private func mapSelectedFiltersToString() -> String {
+        return filterMenu.selectedValues.map({ item in
+            item.name
+        }).joined(separator: ", ")
     }
 }
 
@@ -42,10 +42,8 @@ struct FilterMenuItem: View {
     FilterMenuItem(
         filterMenu: FilterMenu(
             title: LocalizedStrings.statusFilterTitle,
-            selectedValue: FilterItem.mockFilterItem,
+            selectedValues: [],
             filters: []
-            
-        ),
-        onFilterMenuItemClick: { _ in }
+        )
     )
 }

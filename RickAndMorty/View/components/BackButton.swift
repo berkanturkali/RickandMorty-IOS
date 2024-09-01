@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BackButton: View {
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         Image(systemName: "chevron.left")
             .padding(8)
@@ -15,6 +16,9 @@ struct BackButton: View {
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(Color.onBackground)
+            .onTapGesture {
+                dismiss()
+            }
     }
 }
 

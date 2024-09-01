@@ -9,13 +9,16 @@ import SwiftUI
 
 struct FiltersScreen: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @State var isCheckMarkActive: Bool = false
     @State var selectedFilters: [FilterItem] = []
     let title: String
     let filters: [FilterItem]
     
+    let onApplyButtonClick: ([FilterItem]) -> Void
+    
     var body: some View {
-        
         ScrollView {
             LazyVStack {
                 ZStack {
@@ -23,7 +26,10 @@ struct FiltersScreen: View {
                     
                     Image(systemName: "checkmark")
                         .foregroundColor(isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary)
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing).onTapGesture {
+                            onApplyButtonClick(selectedFilters)
+                            dismiss()
+                        }
                     
                     Text(title)
                         .font(.title2)
@@ -50,9 +56,14 @@ struct FiltersScreen: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    FiltersScreen(title: LocalizedStrings.filters, filters: CharacterFilters.filters.first!.filters)
+    FiltersScreen(
+        title: LocalizedStrings.filters,
+        filters: CharacterFilters.filters.first!.filters,
+        onApplyButtonClick: { _ in }
+    )
 }

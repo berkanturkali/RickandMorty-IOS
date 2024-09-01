@@ -12,46 +12,53 @@ struct CharactersScreen: View {
     @StateObject var viewModel = CharactersScreenViewModel()
     
     var body: some View {
-        GeometryReader { geometry in
-            let isLargeScreen = geometry.size.width > 400
-            ZStack {
-                Color.background.ignoresSafeArea()
-                ScrollView {
-                    VStack(spacing: 16) {
-                        
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-                            .font(isLargeScreen ? .system(size: 42) : .title)
-                            .padding(.horizontal)
-                            .padding(.vertical, 4)
-                            .foregroundColor(.tabViewSelectedItem)
-                        
-                        Divider()
-                            .padding(.horizontal)
-                        
-                        
-                        if(isLargeScreen) {
-                            let columns = Array(
-                                repeating: GridItem(
-                                    .flexible(),
-                                    spacing: 20
-                                ),
-                                count: min(
-                                    5,
-                                    Int(
-                                        geometry.size.width / 150
+        NavigationStack {
+            GeometryReader { geometry in
+                let isLargeScreen = geometry.size.width > 400
+                ZStack {
+                    Color.background.ignoresSafeArea()
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            
+                            NavigationLink(destination: {
+                                FilterMenuScreen(filterMenu: CharacterFilters.filters)
+                            }) {
+                                Image(systemName: "line.3.horizontal.decrease.circle")
+                                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                                    .font(isLargeScreen ? .system(size: 42) : .title)
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 4)
+                                    .foregroundColor(.tabViewSelectedItem)
+                            }
+                            
+                            
+                            Divider()
+                                .padding(.horizontal)
+                            
+                            
+                            if(isLargeScreen) {
+                                let columns = Array(
+                                    repeating: GridItem(
+                                        .flexible(),
+                                        spacing: 20
+                                    ),
+                                    count: min(
+                                        5,
+                                        Int(
+                                            geometry.size.width / 150
+                                        )
                                     )
                                 )
-                            )
-                            characterGridView(columns: columns)
-                            
-                        } else {
-                            characterVerticalListView()
+                                characterGridView(columns: columns)
+                                
+                            } else {
+                                characterVerticalListView()
+                            }
                         }
                     }
+                    .padding(.horizontal, 4)
+                    .scrollIndicators(.hidden)
                 }
-                .padding(.horizontal, 4)
-                .scrollIndicators(.hidden)
             }
         }
     }
@@ -74,5 +81,7 @@ struct CharactersScreen: View {
 }
 
 #Preview {
-    CharactersScreen()
+    NavigationStack {
+        CharactersScreen()
+    }
 }
