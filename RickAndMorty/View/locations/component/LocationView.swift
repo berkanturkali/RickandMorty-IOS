@@ -51,6 +51,7 @@ struct LocationView: View {
             Text(description)
                 .bold()
                 .font(.callout)
+                .lineLimit(2)
             
         }
         .font(.title3)

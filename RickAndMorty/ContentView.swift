@@ -30,9 +30,7 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    Text(
-                        LocalizedStrings.locations
-                    )
+                    LocationsScreen()
                 }
             }
             .tabItem { Label(
@@ -67,6 +65,7 @@ struct ContentView: View {
             ) }
         }
         .accentColor(Color.tabViewSelectedItem)
+        .navigationViewStyle(StackNavigationViewStyle())
         
     }
 }

@@ -13,12 +13,13 @@ struct LocationsScreen: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack {
+            LazyVStack(spacing: 16) {
                 ForEach(viewModel.locations, id:\.self) { location in
-                    
+                    LocationView(location: location)
                 }
             }
         }
+        .scrollIndicators(.hidden)
     }
 }
 
