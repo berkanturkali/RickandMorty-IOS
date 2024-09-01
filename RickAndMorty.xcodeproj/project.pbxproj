@@ -43,6 +43,8 @@
 		EBD4510B2C7E35E600C51774 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD4510A2C7E35E600C51774 /* Preview Assets.xcassets */; };
 		EBF11B5F2C84B69400D1EF6C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B5E2C84B69400D1EF6C /* LocationService.swift */; };
 		EBF11B622C84B6E000D1EF6C /* LocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B612C84B6E000D1EF6C /* LocationResponse.swift */; };
+		EBF11B672C84CF1B00D1EF6C /* LocationsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B662C84CF1B00D1EF6C /* LocationsScreen.swift */; };
+		EBF11B6C2C84CF5D00D1EF6C /* LocationsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B6B2C84CF5D00D1EF6C /* LocationsScreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		EBD4510A2C7E35E600C51774 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EBF11B5E2C84B69400D1EF6C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		EBF11B612C84B6E000D1EF6C /* LocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResponse.swift; sourceTree = "<group>"; };
+		EBF11B662C84CF1B00D1EF6C /* LocationsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsScreen.swift; sourceTree = "<group>"; };
+		EBF11B6B2C84CF5D00D1EF6C /* LocationsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 		EB347FAD2C82237500460C89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EBF11B632C84CEF700D1EF6C /* locations */,
 				EB02A7212C838367008D820E /* components */,
 				EB02A7182C837834008D820E /* filters */,
 				EB347FBA2C824DB100460C89 /* characters */,
@@ -156,6 +161,7 @@
 		EB347FAE2C82237D00460C89 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EBF11B682C84CF4300D1EF6C /* locations */,
 				EB347FCF2C82606F00460C89 /* characters */,
 			);
 			path = ViewModel;
@@ -314,6 +320,38 @@
 			path = locations;
 			sourceTree = "<group>";
 		};
+		EBF11B632C84CEF700D1EF6C /* locations */ = {
+			isa = PBXGroup;
+			children = (
+				EBF11B652C84CF0C00D1EF6C /* component */,
+				EBF11B642C84CF0600D1EF6C /* screen */,
+			);
+			path = locations;
+			sourceTree = "<group>";
+		};
+		EBF11B642C84CF0600D1EF6C /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				EBF11B662C84CF1B00D1EF6C /* LocationsScreen.swift */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		EBF11B652C84CF0C00D1EF6C /* component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		EBF11B682C84CF4300D1EF6C /* locations */ = {
+			isa = PBXGroup;
+			children = (
+				EBF11B6B2C84CF5D00D1EF6C /* LocationsScreenViewModel.swift */,
+			);
+			path = locations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -417,9 +455,11 @@
 				EB347FCE2C8259E900460C89 /* ErrorHandler.swift in Sources */,
 				EB02A71C2C83785F008D820E /* FiltersScreen.swift in Sources */,
 				EB347FE92C82AB3600460C89 /* RoundedRectangleBackground.swift in Sources */,
+				EBF11B6C2C84CF5D00D1EF6C /* LocationsScreenViewModel.swift in Sources */,
 				EBF11B622C84B6E000D1EF6C /* LocationResponse.swift in Sources */,
 				EB347FD32C82617300460C89 /* CharactersScreen.swift in Sources */,
 				EBD451022C7E35E500C51774 /* RickAndMortyApp.swift in Sources */,
+				EBF11B672C84CF1B00D1EF6C /* LocationsScreen.swift in Sources */,
 				EB347FD12C82609700460C89 /* CharactersScreenViewModel.swift in Sources */,
 				EB347FC52C8254A500460C89 /* Constants.swift in Sources */,
 				EB347FDE2C826A4500460C89 /* CharacterImage.swift in Sources */,
