@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct LocationsScreen: View {
+    
+    @StateObject var viewModel = LocationsScreenViewModel()
+    
     var body: some View {
         ScrollView {
             LazyVStack {
-                Text("Hello")
+                ForEach(viewModel.locations, id:\.self) { location in
+                    
+                }
             }
         }
     }

@@ -77,6 +77,14 @@ struct LocalizedStrings {
         localizedString(for: "filters")
     }
     
+    static var locationTitle: String {
+        localizedString(for: "location_title")
+    }
+    
+    static var locationType: String {
+        localizedString(for: "location_type")
+    }
+    
     static func localizedString(for key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }
