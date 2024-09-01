@@ -25,4 +25,17 @@ struct EpisodeResponse: Codable, Identifiable, Hashable {
         case url
         case created
     }
+    
+    
+    static var mockEpisode: EpisodeResponse {
+        EpisodeResponse(
+            id: 1,
+            name: "Pilot",
+            airDate: "December 2, 2013",
+            episode: "S01E01",
+            characters: [],
+            url: "",
+            created: "2017-11-10T12:56:33.798Z"
+        )
+    }
 }

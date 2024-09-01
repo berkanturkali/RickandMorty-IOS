@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct EpisodesScreen: View {
+    
+    @StateObject var viewModel = EpisodesScreenViewModel()
+    
+    
     var body: some View {
         ScrollView {
             LazyVStack {
-                
+                ForEach(viewModel.episodes, id: \.self) { episode in
+                        
+                }
             }
         }
     }

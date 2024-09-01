@@ -85,6 +85,18 @@ struct LocalizedStrings {
         localizedString(for: "location_type")
     }
     
+    static var episodeName: String {
+        localizedString(for: "episode_name_title")
+    }
+    
+    static var episode: String {
+        localizedString(for: "episode_title")
+    }
+    
+    static var episodeDate: String {
+        localizedString(for: "episode_date_title")
+    }
+    
     static func localizedString(for key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }

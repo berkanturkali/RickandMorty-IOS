@@ -1,5 +1,5 @@
 //
-//  LocationView.swift
+//  EpisodeView.swift
 //  RickAndMorty
 //
 //  Created by Berkan Turkali on 1.09.2024.
@@ -7,25 +7,28 @@
 
 import SwiftUI
 
-struct LocationView: View {
+struct EpisodeView: View {
     
-    let location: LocationResponse
+    let episode: EpisodeResponse
     
     var body: some View {
         VStack(spacing: 16) {
-            Image(systemName: "mappin.and.ellipse")
+            Image(systemName: "movieclapper")
                 .font(.title2)
                 .foregroundColor(Color.accentColor)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
             
-            if let name = location.name {
-                TitleAndDescription(title: LocalizedStrings.locationTitle, description: name)
+            if let name = episode.name {
+                TitleAndDescription(title: LocalizedStrings.episodeName, description: name)
             }
             
-            if let locationType = location.type {
-                TitleAndDescription(title: LocalizedStrings.locationType, description: locationType)
+            if let date = episode.airDate {
+                TitleAndDescription(title: LocalizedStrings.episodeDate, description: date)
             }
             
+            if let episode = episode.episode {
+                TitleAndDescription(title: LocalizedStrings.episode, description: episode)
+            }
         }
         .padding(.vertical, 24)
         .padding(.horizontal)
@@ -35,14 +38,13 @@ struct LocationView: View {
                 .strokeBorder(Color.gray.opacity(0.5), lineWidth: 1)
                 .background(Color.clear)
                 .cornerRadius(20)
-            
         }
         .padding(.horizontal, 4)
     }
 }
 
 #Preview {
-    LocationView(
-        location: LocationResponse.mockLocation
+    EpisodeView(
+        episode: EpisodeResponse.mockEpisode
     )
 }
