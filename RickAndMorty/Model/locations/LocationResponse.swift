@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocationResponse {
+struct LocationResponse: Codable, Identifiable {
     let id: Int?
     let name: String?
     let type: String
