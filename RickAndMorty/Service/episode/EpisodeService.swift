@@ -12,4 +12,22 @@ struct EpisodeService {
     static let shared = EpisodeService()
     
     private init() {}
+    
+    
+    func fetchEpisodes() async throws -> BaseApiResponse<EpisodeResponse> {
+        let urlString = Constants.episodesEndpoint
+        guard let url = URL(string: urlString) else {
+            throw NetworkError.invalidURL(urlString)
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let episodes = try JSONDecoder().decode(BaseApiResponse<EpisodeResponse>.self, from: data)
+            return episodes
+            
+        } catch {
+            throw NetworkError.requestFailed(error.localizedDescription)
+        }
+    }
+    
 }
