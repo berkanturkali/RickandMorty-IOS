@@ -14,9 +14,16 @@ struct CharacterService {
     private init() {}
     
     
-    func fetchCharacters() async throws -> BaseApiResponse<CharacterResponse> {
+    func fetchCharacters(query: String? = nil) async throws -> BaseApiResponse<CharacterResponse> {
         
-        let urlString = Constants.charactersEndpoint
+        let urlString = if(query != nil && !query!.isEmpty) {
+            Constants.charactersEndpoint + "?" + query!.dropFirst()
+        } else {
+            Constants.charactersEndpoint
+        }
+        
+        print("url = ", urlString)
+        
         guard let url = URL(string: urlString) else {
             throw NetworkError.invalidURL(urlString)
         }

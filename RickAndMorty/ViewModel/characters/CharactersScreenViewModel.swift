@@ -26,12 +26,12 @@ class CharactersScreenViewModel: ObservableObject {
         }
     }
     
-    func fetchCharacters() async {
+    func fetchCharacters(query: String? = nil) async {
         isLoading = true
         errorMessage = nil
         
         do {
-            characters = try await charactersService.fetchCharacters().results
+            characters = try await charactersService.fetchCharacters(query: query).results
         } catch {
             errorMessage = ErrorHandler.shared.getErrorMessage(from: error)
         }

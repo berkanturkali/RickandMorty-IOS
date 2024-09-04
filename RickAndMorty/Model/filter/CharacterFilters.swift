@@ -11,12 +11,9 @@ struct CharacterFilters {
     
     static var filters: [FilterMenu] {
         var filterMenu: [FilterMenu] = []
-        var genderFilterMenu = FilterMenu(title: LocalizedStrings.genderFilterTitle, filters: [])
-        var statusFilterMenu = FilterMenu(title: LocalizedStrings.statusFilterTitle, filters: [])
+        var genderFilterMenu = FilterMenu(title: LocalizedStrings.genderFilterTitle, filters: Gender.genderFilters, queryKey: "gender")
+        var statusFilterMenu = FilterMenu(title: LocalizedStrings.statusFilterTitle, filters: StatusFilter.statusFilters, queryKey: "status")
         
-        genderFilterMenu.filters = Gender.genderFilters
-        
-        statusFilterMenu.filters = StatusFilter.statusFilters
         filterMenu.append(contentsOf: [genderFilterMenu, statusFilterMenu])
         return filterMenu
     }

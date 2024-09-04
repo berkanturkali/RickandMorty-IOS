@@ -22,7 +22,18 @@ struct CharactersScreen: View {
                             
                             NavigationLink(destination: {
                                 FilterMenuScreen(filterMenu: viewModel.filterMenu) { menu in
+                                    var query = ""
+                                    menu.forEach { menuItem in
+                                        menuItem.selectedValues.forEach { filterItem in
+                                            query +=  "&" + menuItem.queryKey + "=" + filterItem.name
+                                        }
+                                    }
+                                    Task {
+                                       await viewModel.fetchCharacters(query: query)
+                                    }
                                     viewModel.filterMenu = menu
+                                    
+                                    
                                 }
                             }) {
                                 

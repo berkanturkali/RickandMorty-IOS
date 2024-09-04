@@ -45,7 +45,8 @@ struct FilterMenuItem: View {
         filterMenu: FilterMenu(
             title: LocalizedStrings.statusFilterTitle,
             selectedValues: [],
-            filters: []
+            filters: [],
+            queryKey: ""
         )
     )
 }
