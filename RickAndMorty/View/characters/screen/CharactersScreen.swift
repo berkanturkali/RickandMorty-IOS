@@ -21,14 +21,30 @@ struct CharactersScreen: View {
                         VStack(spacing: 16) {
                             
                             NavigationLink(destination: {
-                                FilterMenuScreen(filterMenu: CharacterFilters.filters)
+                                FilterMenuScreen(filterMenu: viewModel.filterMenu) { menu in
+                                    viewModel.filterMenu = menu
+                                }
                             }) {
+                                
+                                
                                 Image(systemName: "line.3.horizontal.decrease.circle")
-                                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
                                     .font(isLargeScreen ? .system(size: 42) : .title)
                                     .padding(.horizontal)
                                     .padding(.vertical, 4)
                                     .foregroundColor(.tabViewSelectedItem)
+                                    .overlay {
+                                        let hasNonEmptySelectedValues = viewModel.filterMenu.contains { !$0.selectedValues.isEmpty }
+                                        if(hasNonEmptySelectedValues) {
+                                            Circle()
+                                                .frame(width: 10, height: 10)
+                                                .foregroundColor(Color.onBackground)
+                                                .offset(x: 14, y: -15)
+                                            
+                                            
+                                        }
+                                    }
+                                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                                
                             }
                             
                             

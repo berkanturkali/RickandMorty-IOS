@@ -18,6 +18,8 @@ class CharactersScreenViewModel: ObservableObject {
     
     private let charactersService = CharacterService.shared
     
+    @Published var filterMenu: [FilterMenu] = CharacterFilters.filters
+    
     init() {
         Task {
             await fetchCharacters()

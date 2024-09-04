@@ -11,12 +11,11 @@ struct FilterMenuScreen: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    let filterMenu:[FilterMenu]
+    @State var filterMenu: [FilterMenu]
     
     @State var isCheckMarkActive: Bool = false
     
-    @State var selectedFilters:[FilterItem] = []
-    
+    let onApplyButtonClick: ([FilterMenu]) -> Void
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -28,8 +27,8 @@ struct FilterMenuScreen: View {
                             .foregroundColor(isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary)
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
                             .onTapGesture {
-                                // save the filter values to locale
-                                dismiss()                                
+                                onApplyButtonClick(filterMenu)
+                                dismiss()
                             }
                         
                         
@@ -42,12 +41,16 @@ struct FilterMenuScreen: View {
                     .padding(.horizontal)
                     ForEach(filterMenu.indices, id: \.self) { index in
                         let menu = filterMenu[index]
+                        
                         NavigationLink {
-                            FiltersScreen(selectedFilters: [],
+                            FiltersScreen(selectedFilters: menu.selectedValues,
                                           title: menu.title,
                                           filters: menu.filters,
+                                          previousSelectedItems: menu.selectedValues,
                                           onApplyButtonClick: { filters in
-                                selectedFilters = filters
+                                isCheckMarkActive = filterMenu[index].selectedValues.map{  $0.name } != filters.map{ $0.name }
+                                filterMenu[index].selectedValues = filters
+                                
                             })
                         } label: {
                             FilterMenuItem(filterMenu: menu)
@@ -63,6 +66,7 @@ struct FilterMenuScreen: View {
 
 #Preview {
     FilterMenuScreen(
-        filterMenu: CharacterFilters.filters
-    )
+        filterMenu: CharacterFilters.filters) { _ in
+            
+        }
 }

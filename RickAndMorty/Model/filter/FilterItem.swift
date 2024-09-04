@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct FilterItem {
+struct FilterItem: Hashable {
     let name: String
     let value: String
     var icon: String? = nil

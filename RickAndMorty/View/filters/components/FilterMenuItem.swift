@@ -11,6 +11,8 @@ struct FilterMenuItem: View {
     
     let filterMenu: FilterMenu
     
+    let previousFilters: [FilterItem] = []
+    
     var body: some View {
         VStack {
             Divider()
