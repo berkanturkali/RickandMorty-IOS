@@ -22,8 +22,11 @@ struct CharacterStatus: View {
             
             Text(status)
                 .foregroundColor(Color.onBackground)
+                .multilineTextAlignment(.center)
+            
         }
         .font(.subheadline)
+        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
     }
 }
 

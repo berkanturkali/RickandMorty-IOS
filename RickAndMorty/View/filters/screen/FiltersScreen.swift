@@ -29,70 +29,73 @@ struct FiltersScreen: View {
     
     
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ZStack {
-                    BackButton()
-                    
-                    Image(
-                        systemName: "checkmark"
-                    )
-                    .foregroundColor(
-                        viewModel.isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary
-                    )
-                    .frame(
-                        maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,
-                        alignment: .trailing
-                    ).onTapGesture {
-                        onApplyButtonClick(
-                            selectedFilters
-                        )
-                        dismiss()
-                    }
-                    
-                    Text(
-                        title
-                    )
-                    .font(
-                        .title2
-                    )
-                    .fontWeight(
-                        .bold
-                    )
-                    .foregroundColor(
-                        Color.onBackground
-                    )
-                    
-                }
-                .padding(
-                    .horizontal
-                )
-                ForEach(
-                    filters.indices,
-                    id: \.self
-                ) { index in
-                    FilterItemView(
-                        isSelected: setIsSelectedOfFilterItemView(
-                            index: index
-                        ),
-                        filterItem: filters[index]
-                    ) { item in
+        ZStack {
+            Color.background.ignoresSafeArea()
+            ScrollView {
+                LazyVStack {
+                    ZStack {
+                        BackButton()
                         
-                        if let indexOfTheItem = selectedFilters.firstIndex(where: { $0.name == item.name }) {
-                            selectedFilters.remove(at: indexOfTheItem)
-                        } else {
-                            selectedFilters.append(item)
+                        Image(
+                            systemName: "checkmark"
+                        )
+                        .foregroundColor(
+                            viewModel.isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary
+                        )
+                        .frame(
+                            maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,
+                            alignment: .trailing
+                        ).onTapGesture {
+                            onApplyButtonClick(
+                                selectedFilters
+                            )
+                            dismiss()
                         }
                         
-                        viewModel.setIsCheckMarkActive(
-                            selectedFilters: selectedFilters,
-                            previouslySelectedFilters: previousSelectedItems
+                        Text(
+                            title
                         )
+                        .font(
+                            .title2
+                        )
+                        .fontWeight(
+                            .bold
+                        )
+                        .foregroundColor(
+                            Color.onBackground
+                        )
+                        
+                    }
+                    .padding(
+                        .horizontal
+                    )
+                    ForEach(
+                        filters.indices,
+                        id: \.self
+                    ) { index in
+                        FilterItemView(
+                            isSelected: setIsSelectedOfFilterItemView(
+                                index: index
+                            ),
+                            filterItem: filters[index]
+                        ) { item in
+                            
+                            if let indexOfTheItem = selectedFilters.firstIndex(where: { $0.name == item.name }) {
+                                selectedFilters.remove(at: indexOfTheItem)
+                            } else {
+                                selectedFilters.append(item)
+                            }
+                            
+                            viewModel.setIsCheckMarkActive(
+                                selectedFilters: selectedFilters,
+                                previouslySelectedFilters: previousSelectedItems
+                            )
+                        }
                     }
                 }
             }
+            .navigationBarBackButtonHidden()
         }
-        .navigationBarBackButtonHidden()
     }
     
     

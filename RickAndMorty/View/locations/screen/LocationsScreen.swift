@@ -12,14 +12,19 @@ struct LocationsScreen: View {
     @StateObject var viewModel = LocationsScreenViewModel()
     
     var body: some View {
+        
         ScrollView {
-            LazyVStack(spacing: 16) {
-                ForEach(viewModel.locations, id:\.self) { location in
-                    LocationView(location: location)
+            ZStack {
+                Color.background.ignoresSafeArea()
+                LazyVStack(spacing: 16) {
+                    ForEach(viewModel.locations, id:\.self) { location in
+                        LocationView(location: location)
+                    }
                 }
             }
+            .scrollIndicators(.hidden)
         }
-        .scrollIndicators(.hidden)
+        .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
     }
 }
 

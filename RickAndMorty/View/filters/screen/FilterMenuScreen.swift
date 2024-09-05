@@ -18,44 +18,47 @@ struct FilterMenuScreen: View {
     let onApplyButtonClick: ([FilterMenu]) -> Void
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack(spacing: 16) {
-                    ZStack {
-                        BackButton()
-                        
-                        Image(systemName: "checkmark")
-                            .foregroundColor(isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary)
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-                            .onTapGesture {
-                                onApplyButtonClick(filterMenu)
-                                dismiss()
-                            }
-                        
-                        
-                        Text(LocalizedStrings.filters)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.onBackground)
-                        
-                    }
-                    .padding(.horizontal)
-                    ForEach(filterMenu.indices, id: \.self) { index in
-                        let menu = filterMenu[index]
-                        
-                        NavigationLink {
-                            FiltersScreen(selectedFilters: menu.selectedValues,
-                                          title: menu.title,
-                                          filters: menu.filters,
-                                          previousSelectedItems: menu.selectedValues,
-                                          onApplyButtonClick: { filters in
-                                isCheckMarkActive = filterMenu[index].selectedValues.map{  $0.name } != filters.map{ $0.name }
-                                filterMenu[index].selectedValues = filters
-                                
-                            })
-                        } label: {
-                            FilterMenuItem(filterMenu: menu)
+            ZStack {
+                Color.background.ignoresSafeArea()
+                ScrollView {
+                    LazyVStack(spacing: 16) {
+                        ZStack {
+                            BackButton()
+                            
+                            Image(systemName: "checkmark")
+                                .foregroundColor(isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary)
+                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                                .onTapGesture {
+                                    onApplyButtonClick(filterMenu)
+                                    dismiss()
+                                }
+                            
+                            
+                            Text(LocalizedStrings.filters)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.onBackground)
+                            
                         }
-                        
+                        .padding(.horizontal)
+                        ForEach(filterMenu.indices, id: \.self) { index in
+                            let menu = filterMenu[index]
+                            
+                            NavigationLink {
+                                FiltersScreen(selectedFilters: menu.selectedValues,
+                                              title: menu.title,
+                                              filters: menu.filters,
+                                              previousSelectedItems: menu.selectedValues,
+                                              onApplyButtonClick: { filters in
+                                    isCheckMarkActive = filterMenu[index].selectedValues.map{  $0.name } != filters.map{ $0.name }
+                                    filterMenu[index].selectedValues = filters
+                                    
+                                })
+                            } label: {
+                                FilterMenuItem(filterMenu: menu)
+                            }
+                            
+                        }
                     }
                 }
             }

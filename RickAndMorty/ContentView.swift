@@ -12,26 +12,25 @@ struct ContentView: View {
     
     init() {
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.tabViewUnSelectedItem)
+        UITabBar.appearance().barTintColor = UIColor(Color.background)
     }
     var body: some View {
         TabView {
-            NavigationView {
-                ZStack {
-                    Color.background.ignoresSafeArea()
-                    CharactersScreen()
-                }
+            NavigationView {                
+                CharactersScreen()                
             }
             .tabItem { Label(
                 LocalizedStrings.characters,
                 systemImage: "house"
             )
-        }
+            }
             
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
                     LocationsScreen()
                 }
+                
             }
             .tabItem { Label(
                 LocalizedStrings.locations,
@@ -39,10 +38,8 @@ struct ContentView: View {
             ) }
             
             NavigationView {
-                ZStack {
-                    Color.background.ignoresSafeArea()
-                    EpisodesScreen()
-                }
+                EpisodesScreen()
+                
             }
             .tabItem { Label(
                 LocalizedStrings.episodes,
@@ -50,12 +47,10 @@ struct ContentView: View {
             ) }
             
             NavigationView {
-                ZStack {
-                    Color.background.ignoresSafeArea()
-                    Text(
-                        LocalizedStrings.favorites
-                    )
-                }
+                Text(
+                    LocalizedStrings.favorites
+                )
+                
             }
             .tabItem { Label(
                 LocalizedStrings.favorites,

@@ -13,29 +13,32 @@ struct EpisodesScreen: View {
     
     
     var body: some View {
-        GeometryReader { geometry in
-            let isLargeScreen = geometry.size.width > 400
-            ZStack {
-                Color.background.ignoresSafeArea()
-                ScrollView {
-                    
-                    if(isLargeScreen) {
-                        let columns = Array(
-                            repeating: GridItem(
-                                .flexible(),
-                                spacing: 10
-                            ),
-                            count: min(
-                                4,
-                                Int(
-                                    geometry.size.width / 150
+        ZStack {
+            Color.background.ignoresSafeArea()
+            GeometryReader { geometry in
+                let isLargeScreen = geometry.size.width > 400
+                ZStack {
+                    Color.background.ignoresSafeArea()
+                    ScrollView {
+                        
+                        if(isLargeScreen) {
+                            let columns = Array(
+                                repeating: GridItem(
+                                    .flexible(),
+                                    spacing: 10
+                                ),
+                                count: min(
+                                    4,
+                                    Int(
+                                        geometry.size.width / 150
+                                    )
                                 )
                             )
-                        )
-                        episodesGridView(columns: columns)
-                        
-                    } else {
-                        episodesListView()
+                            episodesGridView(columns: columns)
+                            
+                        } else {
+                            episodesListView()
+                        }
                     }
                 }
             }
