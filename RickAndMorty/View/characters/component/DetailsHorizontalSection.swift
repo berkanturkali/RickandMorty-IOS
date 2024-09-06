@@ -11,12 +11,14 @@ struct DetailsHorizontalSection<Content: View>: View {
     
     let title: String
     
+    var font: Font = .title3
+    
     let content: () -> Content
     
     var body: some View {
         HStack {
             Text(title)
-                .font(.title3)
+                .font(font)
                 .foregroundColor(Color.onBackground)
                 .bold()
             

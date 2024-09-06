@@ -14,6 +14,8 @@ struct CharacterStatus: View {
     
     var alignment: Alignment = .leading
     
+    var font: Font = .subheadline
+    
     var body: some View {
         HStack {
             if(statusColor != Color.clear) {
@@ -27,7 +29,7 @@ struct CharacterStatus: View {
                 .multilineTextAlignment(.center)
             
         }
-        .font(.subheadline)
+        .font(font)
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: alignment)
     }
 }

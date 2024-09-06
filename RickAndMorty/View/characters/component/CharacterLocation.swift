@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CharacterLocation: View {
     let location: String
+    var font: Font = .subheadline
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             Image(systemName: "mappin.and.ellipse")
@@ -16,7 +17,7 @@ struct CharacterLocation: View {
                 .foregroundColor(Color.accentColor)
             
             Text(location)
-                .font(.subheadline)
+                .font(font)
                 .foregroundColor(Color.onBackground)
             
         }
