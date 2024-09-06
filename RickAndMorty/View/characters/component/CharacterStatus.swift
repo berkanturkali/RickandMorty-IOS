@@ -12,7 +12,7 @@ struct CharacterStatus: View {
     let status: String
     let statusColor: Color
     
-    var alignment: Alignment = .center
+    var alignment: Alignment = .leading
     
     var body: some View {
         HStack {

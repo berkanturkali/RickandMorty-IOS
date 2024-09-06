@@ -13,16 +13,45 @@ struct CharacterDetailsScreen: View {
     
     @StateObject var viewModel: CharacterDetailsScreenViewModel = CharacterDetailsScreenViewModel()
     
+    
+    @State var favorited: Bool = false
+    
+    @State private var scale: CGFloat = 1.0
+    
     var body: some View {
         ZStack {
             Color.background.ignoresSafeArea()
+            
             ScrollView {
                 VStack(spacing: 16) {
+                    HStack {
+                        BackButton()
+                        
+                        Image(systemName: favorited ? "star.fill" : "star")
+                            .foregroundColor(.yellow)
+                            .font(.title2)
+                            .scaleEffect(scale)
+                        
+                            .onTapGesture {
+                                favorited.toggle()
+                                withAnimation(.easeInOut(duration: 0.1)) {
+                                    scale = 1.2
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    withAnimation(.easeIn(duration: 0.2)) {
+                                        scale = 1.0
+                                    }
+                                }
+                            }
+                    }
+                    .padding(.horizontal, 20)
                     CharacterImage(imageUrl: character.image)
                         .clipShape(RoundedRectangle(cornerRadius: 24))
                         .frame(height: 350)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                         .scaledToFill()
+                    
                     
                     VStack(spacing: 20) {
                         
