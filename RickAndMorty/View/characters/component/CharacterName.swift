@@ -11,16 +11,21 @@ struct CharacterName: View {
     
     let name: String
     
+    var font: Font = .headline
+    var lineLimit: Int = 2
+    
     var body: some View {
         Text(name)
             .foregroundColor(Color.onBackground)
             .bold()
-            .font(.headline)
-            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+            .font(font)
+            .lineLimit(2)
             .multilineTextAlignment(.center)
     }
 }
 
 #Preview {
-    CharacterName(name: "Garment District Rick")
+    CharacterName(
+        name: "Garment District Rick"
+    )
 }

@@ -293,6 +293,23 @@
         }
       }
     },
+    "see_all" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See All"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tümünü Gör"
+          }
+        }
+      }
+    },
     "status_alive" : {
       "extractionState" : "manual",
       "localizations" : {

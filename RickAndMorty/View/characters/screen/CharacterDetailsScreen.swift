@@ -1,0 +1,125 @@
+//
+//  CharacterDetailsScreen.swift
+//  RickAndMorty
+//
+//  Created by Berkan Turkali on 5.09.2024.
+//
+
+import SwiftUI
+
+struct CharacterDetailsScreen: View {
+    
+    let character: CharacterResponse
+    
+    @StateObject var viewModel: CharacterDetailsScreenViewModel = CharacterDetailsScreenViewModel()
+    
+    var body: some View {
+        ZStack {
+            Color.background.ignoresSafeArea()
+            ScrollView {
+                VStack(spacing: 16) {
+                    CharacterImage(imageUrl: character.image)
+                        .clipShape(RoundedRectangle(cornerRadius: 24))
+                        .frame(height: 350)
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                        .scaledToFill()
+                    
+                    VStack(spacing: 20) {
+                        
+                        if let name = character.name {
+                            CharacterName(name: name, font: .title2, lineLimit: 3)
+                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+                        }
+                        
+                        if let status = character.status {
+                            
+                            DetailsHorizontalSection(title: LocalizedStrings.statusFilterTitle) {
+                                CharacterStatus(
+                                    status: status,
+                                    statusColor: character.statusColor,
+                                    alignment: .trailing
+                                )
+                            }
+                        }
+                        
+                        if let gender = character.characterGender {
+                            DetailsHorizontalSection(title: LocalizedStrings.genderFilterTitle) {
+                                CharacterGender(gender: gender)
+                            }
+                        }
+                        
+                        if let location = character.location?.name {
+                            DetailsHorizontalSection(title: String(LocalizedStrings.locationTitle.dropLast())) {
+                                CharacterLocation(location: location)
+                            }
+                        }
+                    }
+                    
+                    VStack {
+                        if(!viewModel.episodes.isEmpty) {
+                            HStack {
+                                Text(LocalizedStrings.episodes)
+                                    .font(.title3)
+                                    .bold()
+                                    .padding(.horizontal)
+                                Spacer()
+                                if(character.episode.count > 20) {
+                                    Group {
+                                        Text(LocalizedStrings.seeAll)
+                                        
+                                        +
+                                        Text("(\(character.episode.count))")
+                                        
+                                    }
+                                    .font(.caption)
+                                    .underline()
+                                    .padding(.horizontal)
+                                    .onTapGesture {
+                                        // navigate to episodes screen
+                                    }
+                                }
+                            }
+                            .foregroundColor(Color.onBackground)
+                            
+                            Divider()
+                            
+                            ScrollView {
+                                LazyHStack(spacing: 20) {
+                                    ForEach(viewModel.episodes, id: \.self) { episode in
+                                        EpisodeGridItemView(episode: episode)
+                                            .padding(.vertical, 8)
+                                    }
+                                }
+                            }
+                            .scrollIndicators(.hidden)
+                        }
+                    }
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                    .padding(.vertical, 8)
+                    
+                }
+                
+            }.scrollIndicators(.hidden)
+                .task {
+                    if(!character.episode.isEmpty) {
+                        let episodeIds = character.episode.prefix(20).compactMap { urlString -> String? in
+                            if let urlString {
+                                if let url = URL(string: urlString) {
+                                    return url.lastPathComponent
+                                }
+                            }
+                            return nil
+                        }
+                        
+                        for id in episodeIds {
+                            await viewModel.fetchEpisode(episodeId: id)
+                        }
+                    }
+                }
+        }
+    }
+}
+
+#Preview {
+    CharacterDetailsScreen(character: CharacterResponse.mockCharacter)
+}

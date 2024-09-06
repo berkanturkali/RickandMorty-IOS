@@ -47,10 +47,12 @@ struct ContentView: View {
             ) }
             
             NavigationView {
-                Text(
-                    LocalizedStrings.favorites
-                )
-                
+                ZStack {
+                    Color.background.ignoresSafeArea()
+                    Text(
+                        LocalizedStrings.favorites
+                    )
+                }
             }
             .tabItem { Label(
                 LocalizedStrings.favorites,

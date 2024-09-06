@@ -97,6 +97,10 @@ struct LocalizedStrings {
         localizedString(for: "episode_date_title")
     }
     
+    static var seeAll: String {
+        localizedString(for: "see_all")
+    }
+    
     static func localizedString(for key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }

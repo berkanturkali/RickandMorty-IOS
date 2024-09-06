@@ -12,6 +12,8 @@ struct CharacterStatus: View {
     let status: String
     let statusColor: Color
     
+    var alignment: Alignment = .center
+    
     var body: some View {
         HStack {
             if(statusColor != Color.clear) {
@@ -26,7 +28,7 @@ struct CharacterStatus: View {
             
         }
         .font(.subheadline)
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: alignment)
     }
 }
 

@@ -12,7 +12,7 @@ struct EpisodeGridItemView: View {
     let episode: EpisodeResponse
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
+        VStack(alignment: .center, spacing: 10) {
             Image(systemName: "movieclapper")
                 .font(.title2)
                 .foregroundColor(Color.accentColor)
@@ -24,17 +24,20 @@ struct EpisodeGridItemView: View {
                         .background(Color.clear)
                 }
             
-            if let name = episode.name {
-                sectionText(text: name)
+            Group {
+                if let name = episode.name {
+                    sectionText(text: name)
+                }
+                
+                if let date = episode.airDate {
+                    sectionText(text: date)
+                }
+                
+                if let episode = episode.episode {
+                    sectionText(text: episode)
+                }
             }
-            
-            if let date = episode.airDate {
-                sectionText(text: date)
-            }
-            
-            if let episode = episode.episode {
-                sectionText(text: episode)
-            }
+            .padding(.horizontal)
             
         }
         .padding(.vertical, 24)
@@ -46,8 +49,7 @@ struct EpisodeGridItemView: View {
                 .background(Color.clear)
                 .cornerRadius(20)
         }
-        .padding()
-    
+        
         
     }
     

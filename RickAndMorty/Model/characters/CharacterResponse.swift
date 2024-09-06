@@ -66,6 +66,13 @@ struct CharacterResponse: Codable, Identifiable, Hashable {
         }
     }
     
+    var characterGender: Gender? {
+        if let gender = self.gender {
+            return  Gender.mapStringGenderToThis(gender: gender)
+        }
+        return nil
+    }
+    
     static var mockCharacter: CharacterResponse {
         return CharacterResponse(
             id:
@@ -89,7 +96,7 @@ struct CharacterResponse: Codable, Identifiable, Hashable {
                 "https://rickandmortyapi.com/api/episode/2"
             ],
             url: nil,
-//            url: "https://rickandmortyapi.com/api/character/1",
+            //            url: "https://rickandmortyapi.com/api/character/1",
             created: "2017-11-04T18:48:46.250Z"
         )
     }

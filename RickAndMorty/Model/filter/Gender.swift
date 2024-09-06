@@ -32,6 +32,10 @@ enum Gender: String, CaseIterable {
         }
     }
     
+    static func mapStringGenderToThis(gender: String) -> Gender {
+        Gender(rawValue: gender.lowercased())!
+    }
+    
     
     static var genderFilters: [FilterItem] {
         return Gender.allCases.map { gender in
