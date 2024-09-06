@@ -50,6 +50,10 @@ struct EpisodeGridItemView: View {
                 .cornerRadius(20)
         }
         
+        .padding(.horizontal, 4)
+        
+        
+        
         
     }
     
@@ -57,7 +61,7 @@ struct EpisodeGridItemView: View {
         Text(text)
             .font(.callout)
             .fontWeight(.semibold)
-            .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
+            .lineLimit(2)
             .foregroundColor(Color.onBackground)
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
             .multilineTextAlignment(.center)

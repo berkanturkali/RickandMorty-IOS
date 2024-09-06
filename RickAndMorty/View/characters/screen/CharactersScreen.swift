@@ -29,7 +29,7 @@ struct CharactersScreen: View {
                                         }
                                     }
                                     Task {
-                                       await viewModel.fetchCharacters(query: query)
+                                        await viewModel.fetchCharacters(query: query)
                                     }
                                     viewModel.filterMenu = menu
                                     
@@ -93,7 +93,11 @@ struct CharactersScreen: View {
     func characterGridView(columns: [GridItem]) -> some View {
         LazyVGrid(columns: columns, spacing: 24) {
             ForEach(viewModel.characters, id: \.self) { character in
-                CharacterGridViewItem(character: character)
+                NavigationLink(destination: {
+                    CharacterDetailsScreen(character: character)
+                }) {
+                    CharacterGridViewItem(character: character)
+                }
             }
         }
     }
@@ -101,7 +105,11 @@ struct CharactersScreen: View {
     func characterVerticalListView() -> some View {
         LazyVStack(spacing: 16) {
             ForEach(viewModel.characters, id:\.self) { character in
-                CharacterView(character: character)
+                NavigationLink(destination: {
+                    CharacterDetailsScreen(character: character)
+                }) {
+                    CharacterView(character: character)
+                }
             }
         }
     }

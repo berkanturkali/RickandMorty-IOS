@@ -25,7 +25,7 @@ struct CharacterGridViewItem: View {
                 }
                 
                 if let statusAndSpecies = character.statusAndSpecies {
-                    CharacterStatus(status: statusAndSpecies, statusColor: character.statusColor)
+                    CharacterStatus(status: statusAndSpecies, statusColor: character.statusColor, alignment: .center)
                     
                 }
             }

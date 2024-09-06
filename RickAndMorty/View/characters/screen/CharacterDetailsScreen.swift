@@ -76,6 +76,7 @@ struct CharacterDetailsScreen: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     fileprivate func CharacterDetailsContentForSmallDevices() -> some View {
@@ -146,11 +147,12 @@ struct CharacterDetailsScreen: View {
                     
                     Divider()
                     
-                    ScrollView {
+                    ScrollView(.horizontal) {
                         LazyHStack(spacing: 20) {
                             ForEach(viewModel.episodes, id: \.self) { episode in
                                 EpisodeGridItemView(episode: episode)
                                     .padding(.vertical, 8)
+                                    .frame(width: 200)
                             }
                         }
                     }
@@ -214,7 +216,7 @@ struct CharacterDetailsScreen: View {
                     let columns = Array(
                         repeating: GridItem(
                             .flexible(),
-                            spacing: 20
+                            spacing: 15
                         ),
                         count: min(
                             5,
@@ -248,22 +250,26 @@ struct CharacterDetailsScreen: View {
                     
                     Divider()
                     
-                    ScrollView {
+                    ScrollView() {
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(viewModel.episodes, id: \.self) { episode in
                                 EpisodeGridItemView(episode: episode)
-                                    .padding(.vertical, 8)
+                                
+                                    .frame(maxWidth: 250)
+                                
+                                
                             }
                         }
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     }
                     .scrollIndicators(.hidden)
+                    
                 }
             }
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
             .padding(.vertical, 8)
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             
         }
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
     }
     
 }
