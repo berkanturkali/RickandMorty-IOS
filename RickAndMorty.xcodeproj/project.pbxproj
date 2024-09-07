@@ -59,6 +59,7 @@
 		EBF11B7E2C84EB8000D1EF6C /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B7D2C84EB8000D1EF6C /* EpisodeView.swift */; };
 		EBF11B802C84ECBA00D1EF6C /* TitleAndDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B7F2C84ECBA00D1EF6C /* TitleAndDescription.swift */; };
 		EBF11B822C84F30500D1EF6C /* EpisodeGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B812C84F30500D1EF6C /* EpisodeGridItemView.swift */; };
+		EBFE575D2C8CB704009CF345 /* AllEpisodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		EBF11B7D2C84EB8000D1EF6C /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
 		EBF11B7F2C84ECBA00D1EF6C /* TitleAndDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndDescription.swift; sourceTree = "<group>"; };
 		EBF11B812C84F30500D1EF6C /* EpisodeGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeGridItemView.swift; sourceTree = "<group>"; };
+		EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodesScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				EBF11B782C84E91200D1EF6C /* EpisodesScreen.swift */,
+				EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */,
 			);
 			path = screen;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				EBF017BA2C8A102900BBC9A2 /* CharacterDetailsScreen.swift in Sources */,
 				EB347FC12C82527C00460C89 /* BaseApiResponse.swift in Sources */,
 				EB347FD82C8266D100460C89 /* CharacterStatus.swift in Sources */,
+				EBFE575D2C8CB704009CF345 /* AllEpisodesScreen.swift in Sources */,
 				EBF11B7C2C84E93F00D1EF6C /* EpisodesScreenViewModel.swift in Sources */,
 				EB347FDC2C8269B900460C89 /* FirstSeenIn.swift in Sources */,
 				EBF11B802C84ECBA00D1EF6C /* TitleAndDescription.swift in Sources */,

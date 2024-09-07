@@ -11,7 +11,6 @@ struct EpisodesScreen: View {
     
     @StateObject var viewModel = EpisodesScreenViewModel()
     
-    
     var body: some View {
         ZStack {
             Color.background.ignoresSafeArea()
@@ -19,30 +18,34 @@ struct EpisodesScreen: View {
                 let isLargeScreen = geometry.size.width > 400
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    ScrollView {
-                        
-                        if(isLargeScreen) {
-                            let columns = Array(
-                                repeating: GridItem(
-                                    .flexible(),
-                                    spacing: 10
-                                ),
-                                count: min(
-                                    4,
-                                    Int(
-                                        geometry.size.width / 150
+                    VStack(spacing: 16) {
+                        BackButton()
+                            .padding(.horizontal)
+                        ScrollView {
+                            if(isLargeScreen) {
+                                let columns = Array(
+                                    repeating: GridItem(
+                                        .flexible(),
+                                        spacing: 10
+                                    ),
+                                    count: min(
+                                        4,
+                                        Int(
+                                            geometry.size.width / 150
+                                        )
                                     )
                                 )
-                            )
-                            episodesGridView(columns: columns)
-                            
-                        } else {
-                            episodesListView()
+                                episodesGridView(columns: columns)
+                                
+                            } else {
+                                episodesListView()
+                            }
                         }
                     }
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func episodesGridView(columns: [GridItem]) -> some View {
@@ -54,7 +57,7 @@ struct EpisodesScreen: View {
     }
     
     func episodesListView() -> some View {
-        LazyVStack(spacing: 16) {
+        VStack(spacing: 16) {
             ForEach(viewModel.episodes, id:\.self) { episode in
                 EpisodeView(episode: episode)
             }

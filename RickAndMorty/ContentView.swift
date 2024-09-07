@@ -16,8 +16,8 @@ struct ContentView: View {
     }
     var body: some View {
         TabView {
-            NavigationView {                
-                CharactersScreen()                
+            NavigationView {
+                CharactersScreen()
             }
             .tabItem { Label(
                 LocalizedStrings.characters,
@@ -30,7 +30,6 @@ struct ContentView: View {
                     Color.background.ignoresSafeArea()
                     LocationsScreen()
                 }
-                
             }
             .tabItem { Label(
                 LocalizedStrings.locations,

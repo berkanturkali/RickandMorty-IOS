@@ -20,17 +20,18 @@ struct CharacterDetailsScreen: View {
     
     
     var body: some View {
-        ZStack {
-            Color.background.ignoresSafeArea()
-            
-            GeometryReader { geometry in
-                let isLargeScreen = geometry.size.width > 400
+        NavigationStack {
+            ZStack {
+                Color.background.ignoresSafeArea()
                 
-                ScrollView {
+                
+                GeometryReader { geometry in
+                    let isLargeScreen = geometry.size.width > 400
                     VStack(spacing: 16) {
+                        
                         HStack {
+                            
                             BackButton()
-                                .font(isLargeScreen ? .largeTitle : .title2)
                             
                             Image(systemName: favorited ? "star.fill" : "star")
                                 .foregroundColor(.yellow)
@@ -50,27 +51,33 @@ struct CharacterDetailsScreen: View {
                                 }
                         }
                         .padding(.horizontal, 20)
-                    }
-                    if(isLargeScreen) {
-                        CharacterDetailsContentForLargeDevices(width: geometry.size.width)
-                    } else {
-                        CharacterDetailsContentForSmallDevices()
-                    }
-                }
-                .scrollIndicators(.hidden)
-                .task {
-                    if(!character.episode.isEmpty) {
-                        let episodeIds = character.episode.prefix(20).compactMap { urlString -> String? in
-                            if let urlString {
-                                if let url = URL(string: urlString) {
-                                    return url.lastPathComponent
+                        
+                        
+                        
+                        ScrollView {
+                            
+                            if(isLargeScreen) {
+                                CharacterDetailsContentForLargeDevices(width: geometry.size.width)
+                            } else {
+                                CharacterDetailsContentForSmallDevices()
+                            }
+                        }
+                        .scrollIndicators(.hidden)
+                        .task {
+                            if(!character.episode.isEmpty) {
+                                let episodeIds = character.episode.compactMap { urlString -> String? in
+                                    if let urlString {
+                                        if let url = URL(string: urlString) {
+                                            return url.lastPathComponent
+                                        }
+                                    }
+                                    return nil
+                                }
+                                
+                                for id in episodeIds {
+                                    await viewModel.fetchEpisode(episodeId: id)
                                 }
                             }
-                            return nil
-                        }
-                        
-                        for id in episodeIds {
-                            await viewModel.fetchEpisode(episodeId: id)
                         }
                     }
                 }
@@ -128,20 +135,22 @@ struct CharacterDetailsScreen: View {
                             .padding(.horizontal)
                         Spacer()
                         if(character.episode.count > 20) {
-                            Group {
-                                Text(LocalizedStrings.seeAll)
-                                
-                                +
-                                Text("(\(character.episode.count))")
-                                
-                            }
-                            .font(.caption)
-                            .underline()
-                            .padding(.horizontal)
-                            .onTapGesture {
-                                // navigate to episodes screen
+                            NavigationLink(destination: {
+                                AllEpisodesScreen(episodes: $viewModel.episodes)
+                            }) {
+                                Group {
+                                    Text(LocalizedStrings.seeAll)
+                                    
+                                    +
+                                    Text("(\(character.episode.count))")
+                                    
+                                }
+                                .font(.caption)
+                                .underline()
+                                .padding(.horizontal)
                             }
                         }
+                        
                     }
                     .foregroundColor(Color.onBackground)
                     
@@ -149,7 +158,7 @@ struct CharacterDetailsScreen: View {
                     
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 20) {
-                            ForEach(viewModel.episodes, id: \.self) { episode in
+                            ForEach(viewModel.episodes.prefix(20), id: \.self) { episode in
                                 EpisodeGridItemView(episode: episode)
                                     .padding(.vertical, 8)
                                     .frame(width: 200)
@@ -231,20 +240,6 @@ struct CharacterDetailsScreen: View {
                             .bold()
                             .padding(.horizontal)
                         Spacer()
-                        if(character.episode.count > 20) {
-                            Group {
-                                Text(LocalizedStrings.seeAll)
-                                +
-                                Text(" (\(character.episode.count))")
-                                
-                            }
-                            .font(.title2)
-                            .underline()
-                            .padding(.horizontal)
-                            .onTapGesture {
-                                // navigate to episodes screen
-                            }
-                        }
                     }
                     .foregroundColor(Color.onBackground)
                     
@@ -254,9 +249,7 @@ struct CharacterDetailsScreen: View {
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(viewModel.episodes, id: \.self) { episode in
                                 EpisodeGridItemView(episode: episode)
-                                
                                     .frame(maxWidth: 250)
-                                
                                 
                             }
                         }
