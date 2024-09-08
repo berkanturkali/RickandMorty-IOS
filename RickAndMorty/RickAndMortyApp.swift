@@ -10,10 +10,15 @@ import SwiftData
 
 @main
 struct RickAndMortyApp: App {
-
+    
     var body: some Scene {
+        
         WindowGroup {
-            ContentView()
+            GeometryReader { proxy in
+                ContentView()
+                    .environment(\.mainWindowSize, proxy.size)
+                    .environment(\.isLargeScreen, proxy.size.width > 400)
+            }
         }
     }
 }

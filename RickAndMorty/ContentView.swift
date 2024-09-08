@@ -13,17 +13,20 @@ struct ContentView: View {
     init() {
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.tabViewUnSelectedItem)
         UITabBar.appearance().barTintColor = UIColor(Color.background)
+        UITabBar.appearance().backgroundColor = UIColor(Color.background)
     }
     var body: some View {
         TabView {
             NavigationView {
-                CharactersScreen()
+                CharactersScreen()          
+                
             }
             .tabItem { Label(
                 LocalizedStrings.characters,
                 systemImage: "house"
             )
             }
+
             
             NavigationView {
                 ZStack {

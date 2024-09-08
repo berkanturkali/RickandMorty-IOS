@@ -9,39 +9,34 @@ import SwiftUI
 
 struct EpisodesScreen: View {
     
+    @Environment(\.isLargeScreen) private var isLargeScreen: Bool
+    @Environment(\.mainWindowSize) private var mainWindowSize: CGSize
+    
     @StateObject var viewModel = EpisodesScreenViewModel()
+    
+    
     
     var body: some View {
         ZStack {
-            Color.background.ignoresSafeArea()
-            GeometryReader { geometry in
-                let isLargeScreen = geometry.size.width > 400
-                ZStack {
-                    Color.background.ignoresSafeArea()
-                    VStack(spacing: 16) {
-                        BackButton()
-                            .padding(.horizontal)
-                        ScrollView {
-                            if(isLargeScreen) {
-                                let columns = Array(
-                                    repeating: GridItem(
-                                        .flexible(),
-                                        spacing: 10
-                                    ),
-                                    count: min(
-                                        4,
-                                        Int(
-                                            geometry.size.width / 150
-                                        )
-                                    )
-                                )
-                                episodesGridView(columns: columns)
-                                
-                            } else {
-                                episodesListView()
-                            }
-                        }
-                    }
+            
+            ScrollView {
+                if(isLargeScreen) {
+                    let columns = Array(
+                        repeating: GridItem(
+                            .flexible(),
+                            spacing: 10
+                        ),
+                        count: min(
+                            4,
+                            Int(
+                                mainWindowSize.width / 150
+                            )
+                        )
+                    )
+                    episodesGridView(columns: columns)
+                    
+                } else {
+                    episodesListView()
                 }
             }
         }

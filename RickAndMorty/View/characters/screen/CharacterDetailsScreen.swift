@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CharacterDetailsScreen: View {
     
+    @Environment(\.isLargeScreen) private var isLargeScreen: Bool
+    @Environment(\.mainWindowSize) private var mainWindowSize: CGSize
+    
     let character: CharacterResponse
     
     @StateObject var viewModel: CharacterDetailsScreenViewModel = CharacterDetailsScreenViewModel()
@@ -23,66 +26,62 @@ struct CharacterDetailsScreen: View {
         NavigationStack {
             ZStack {
                 Color.background.ignoresSafeArea()
-                
-                
-                GeometryReader { geometry in
-                    let isLargeScreen = geometry.size.width > 400
-                    VStack(spacing: 16) {
+                VStack(spacing: 16) {
+                    
+                    HStack {
                         
-                        HStack {
-                            
-                            BackButton()
-                            
-                            Image(systemName: favorited ? "star.fill" : "star")
-                                .foregroundColor(.yellow)
-                                .font(isLargeScreen ? .largeTitle : .title2)
-                                .scaleEffect(scale)
-                                .onTapGesture {
-                                    favorited.toggle()
-                                    withAnimation(.easeInOut(duration: 0.1)) {
-                                        scale = 1.2
-                                    }
-                                    
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        withAnimation(.easeIn(duration: 0.2)) {
-                                            scale = 1.0
-                                        }
-                                    }
-                                }
-                        }
-                        .padding(.horizontal, 20)
+                        BackButton()
                         
-                        
-                        
-                        ScrollView {
-                            
-                            if(isLargeScreen) {
-                                CharacterDetailsContentForLargeDevices(width: geometry.size.width)
-                            } else {
-                                CharacterDetailsContentForSmallDevices()
-                            }
-                        }
-                        .scrollIndicators(.hidden)
-                        .task {
-                            if(!character.episode.isEmpty) {
-                                let episodeIds = character.episode.compactMap { urlString -> String? in
-                                    if let urlString {
-                                        if let url = URL(string: urlString) {
-                                            return url.lastPathComponent
-                                        }
-                                    }
-                                    return nil
+                        Image(systemName: favorited ? "star.fill" : "star")
+                            .foregroundColor(.yellow)
+                            .font(isLargeScreen ? .largeTitle : .title2)
+                            .scaleEffect(scale)
+                            .onTapGesture {
+                                favorited.toggle()
+                                withAnimation(.easeInOut(duration: 0.1)) {
+                                    scale = 1.2
                                 }
                                 
-                                for id in episodeIds {
-                                    await viewModel.fetchEpisode(episodeId: id)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    withAnimation(.easeIn(duration: 0.2)) {
+                                        scale = 1.0
+                                    }
                                 }
+                            }
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    
+                    
+                    ScrollView {
+                        
+                        if(isLargeScreen) {
+                            CharacterDetailsContentForLargeDevices(width: mainWindowSize.width)
+                        } else {
+                            CharacterDetailsContentForSmallDevices()
+                        }
+                    }
+                    .scrollIndicators(.hidden)
+                    .task {
+                        if(!character.episode.isEmpty) {
+                            let episodeIds = character.episode.compactMap { urlString -> String? in
+                                if let urlString {
+                                    if let url = URL(string: urlString) {
+                                        return url.lastPathComponent
+                                    }
+                                }
+                                return nil
+                            }
+                            
+                            for id in episodeIds {
+                                await viewModel.fetchEpisode(episodeId: id)
                             }
                         }
                     }
                 }
             }
         }
+        .toolbar(.hidden, for: .tabBar)
         .navigationBarBackButtonHidden(true)
     }
     

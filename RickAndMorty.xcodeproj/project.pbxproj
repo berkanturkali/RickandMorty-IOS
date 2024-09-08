@@ -60,6 +60,7 @@
 		EBF11B802C84ECBA00D1EF6C /* TitleAndDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B7F2C84ECBA00D1EF6C /* TitleAndDescription.swift */; };
 		EBF11B822C84F30500D1EF6C /* EpisodeGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B812C84F30500D1EF6C /* EpisodeGridItemView.swift */; };
 		EBFE575D2C8CB704009CF345 /* AllEpisodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */; };
+		EBFE57652C8CD9B4009CF345 /* MainWindowSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		EBF11B7F2C84ECBA00D1EF6C /* TitleAndDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndDescription.swift; sourceTree = "<group>"; };
 		EBF11B812C84F30500D1EF6C /* EpisodeGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeGridItemView.swift; sourceTree = "<group>"; };
 		EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodesScreen.swift; sourceTree = "<group>"; };
+		EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +333,7 @@
 		EBD451002C7E35E500C51774 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				EBFE57632C8CD91A009CF345 /* Utils */,
 				EB347FB02C822EA700460C89 /* Locals */,
 				EB347FAF2C822E9D00460C89 /* Service */,
 				EB347FAE2C82237D00460C89 /* ViewModel */,
@@ -453,6 +456,14 @@
 			path = episodes;
 			sourceTree = "<group>";
 		};
+		EBFE57632C8CD91A009CF345 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -552,6 +563,7 @@
 				EB02A7252C8387FE008D820E /* FilterItemView.swift in Sources */,
 				EB02A7132C835E09008D820E /* Gender.swift in Sources */,
 				EB347FCA2C82562900460C89 /* CharacterService.swift in Sources */,
+				EBFE57652C8CD9B4009CF345 /* MainWindowSizeKey.swift in Sources */,
 				EB02A7152C836770008D820E /* StatusFilter.swift in Sources */,
 				EB347FC32C8252F300460C89 /* CharacterResponse.swift in Sources */,
 				EBDEBFBC2C8B65C4003DEBAF /* CharacterLocation.swift in Sources */,

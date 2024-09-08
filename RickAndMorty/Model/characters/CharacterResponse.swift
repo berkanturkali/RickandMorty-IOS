@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 struct CharacterResponse: Codable, Identifiable, Hashable {
     let id: Int?
     let name: String?
