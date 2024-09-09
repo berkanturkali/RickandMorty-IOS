@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationView {
-                CharactersScreen()          
+                CharactersScreen()
                 
             }
             .tabItem { Label(
@@ -26,7 +26,7 @@ struct ContentView: View {
                 systemImage: "house"
             )
             }
-
+            
             
             NavigationView {
                 ZStack {
@@ -49,12 +49,8 @@ struct ContentView: View {
             ) }
             
             NavigationView {
-                ZStack {
-                    Color.background.ignoresSafeArea()
-                    Text(
-                        LocalizedStrings.favorites
-                    )
-                }
+                FavoritesScreen()
+                
             }
             .tabItem { Label(
                 LocalizedStrings.favorites,

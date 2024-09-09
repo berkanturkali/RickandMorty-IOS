@@ -28,6 +28,29 @@ class CharacterEntity  {
         self.image = image
     }
     
+    func mapToCharacter() -> CharacterResponse{
+        return CharacterResponse(
+            id: id,
+            name: name,
+            status: status,
+            species: species,
+            type: nil,
+            gender: nil,
+            origin: CharacterResponse.Origin(
+                name: origin.name,
+                url: nil
+            ),
+            location: CharacterResponse.Location(
+                name: location.name,
+                url: nil
+            ),
+            image: image,
+            episode: [nil],
+            url: nil,
+            created: nil
+        )
+    }
+    
 }
 
 @Model

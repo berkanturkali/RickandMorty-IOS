@@ -60,6 +60,8 @@
 		EBF11B7E2C84EB8000D1EF6C /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B7D2C84EB8000D1EF6C /* EpisodeView.swift */; };
 		EBF11B802C84ECBA00D1EF6C /* TitleAndDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B7F2C84ECBA00D1EF6C /* TitleAndDescription.swift */; };
 		EBF11B822C84F30500D1EF6C /* EpisodeGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B812C84F30500D1EF6C /* EpisodeGridItemView.swift */; };
+		EBF5128C2C8F667300A7E2E4 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */; };
+		EBF5128F2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */; };
 		EBFE575D2C8CB704009CF345 /* AllEpisodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */; };
 		EBFE57652C8CD9B4009CF345 /* MainWindowSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */; };
 /* End PBXBuildFile section */
@@ -118,6 +120,8 @@
 		EBF11B7D2C84EB8000D1EF6C /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
 		EBF11B7F2C84ECBA00D1EF6C /* TitleAndDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndDescription.swift; sourceTree = "<group>"; };
 		EBF11B812C84F30500D1EF6C /* EpisodeGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeGridItemView.swift; sourceTree = "<group>"; };
+		EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
+		EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenViewModel.swift; sourceTree = "<group>"; };
 		EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodesScreen.swift; sourceTree = "<group>"; };
 		EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +190,7 @@
 		EB347FAD2C82237500460C89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EBF512892C8F665F00A7E2E4 /* favorites */,
 				EBF11B752C84E8F300D1EF6C /* episodes */,
 				EBF11B632C84CEF700D1EF6C /* locations */,
 				EB02A7212C838367008D820E /* components */,
@@ -198,6 +203,7 @@
 		EB347FAE2C82237D00460C89 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EBF5128D2C8F66AA00A7E2E4 /* favorites */,
 				EBB09C2B2C87A0F200B57D94 /* filters */,
 				EBF11B7A2C84E93000D1EF6C /* episodes */,
 				EBF11B682C84CF4300D1EF6C /* locations */,
@@ -459,6 +465,30 @@
 			path = episodes;
 			sourceTree = "<group>";
 		};
+		EBF512892C8F665F00A7E2E4 /* favorites */ = {
+			isa = PBXGroup;
+			children = (
+				EBF5128A2C8F666800A7E2E4 /* screen */,
+			);
+			path = favorites;
+			sourceTree = "<group>";
+		};
+		EBF5128A2C8F666800A7E2E4 /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		EBF5128D2C8F66AA00A7E2E4 /* favorites */ = {
+			isa = PBXGroup;
+			children = (
+				EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */,
+			);
+			path = favorites;
+			sourceTree = "<group>";
+		};
 		EBFE57632C8CD91A009CF345 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,6 +602,7 @@
 				EBDEBFBC2C8B65C4003DEBAF /* CharacterLocation.swift in Sources */,
 				EBB09C2D2C87A0FF00B57D94 /* FiltersScreenViewModel.swift in Sources */,
 				EBF11B822C84F30500D1EF6C /* EpisodeGridItemView.swift in Sources */,
+				EBF5128C2C8F667300A7E2E4 /* FavoritesScreen.swift in Sources */,
 				EB02A7172C83703C008D820E /* FilterMenu.swift in Sources */,
 				EB347FE72C82A09F00460C89 /* CharacterGridViewItem.swift in Sources */,
 				EB02A71E2C837872008D820E /* FilterMenuItem.swift in Sources */,
@@ -585,6 +616,7 @@
 				EB347FE92C82AB3600460C89 /* RoundedRectangleBackground.swift in Sources */,
 				EBF11B6C2C84CF5D00D1EF6C /* LocationsScreenViewModel.swift in Sources */,
 				EBF11B622C84B6E000D1EF6C /* LocationResponse.swift in Sources */,
+				EBF5128F2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift in Sources */,
 				EB347FD32C82617300460C89 /* CharactersScreen.swift in Sources */,
 				EBEBDF9E2C8DE6D5001EE25A /* CharacterEntity.swift in Sources */,
 				EBD451022C7E35E500C51774 /* RickAndMortyApp.swift in Sources */,
