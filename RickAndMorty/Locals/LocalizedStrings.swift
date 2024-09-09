@@ -101,7 +101,12 @@ struct LocalizedStrings {
         localizedString(for: "see_all")
     }
     
+    static var nothingHere: String {
+        localizedString(for: "nothing_here")
+    }
+    
     static func localizedString(for key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }
+
 }

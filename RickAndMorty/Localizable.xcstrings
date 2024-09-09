@@ -296,6 +296,23 @@
         }
       }
     },
+    "nothing_here" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nothing here."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Burada bir şey yok."
+          }
+        }
+      }
+    },
     "see_all" : {
       "extractionState" : "manual",
       "localizations" : {

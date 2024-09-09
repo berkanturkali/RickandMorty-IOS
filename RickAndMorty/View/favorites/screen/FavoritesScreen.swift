@@ -16,22 +16,24 @@ struct FavoritesScreen: View {
     var body: some View {
         ZStack {
             Color.background.edgesIgnoringSafeArea(.all)
-            List {
-                ForEach(viewModel.favorites, id: \.self) { character in
-                    
-                    CharacterView(character: character)
-                        .listRowBackground(Color.background)
-                }
-                .onDelete { indexSet in
-                    for index in indexSet {
-                        viewModel.removeFromFavorites(context: modelContext, character: viewModel.favorites[index])
+            if(viewModel.favorites.isEmpty) {
+                EmptyFavoritesView()
+            } else {
+                List {
+                    ForEach(viewModel.favorites, id: \.self) { character in
+                        CharacterView(character: character)
+                            .listRowBackground(Color.background)
+                    }
+                    .onDelete { indexSet in
+                        for index in indexSet {
+                            viewModel.removeFromFavorites(context: modelContext, character: viewModel.favorites[index])
+                        }
                     }
                 }
+                .listStyle(PlainListStyle())
+                .scrollContentBackground(.hidden)
+                
             }
-            .listStyle(PlainListStyle())
-            .scrollContentBackground(.hidden)
-            
-            
         }
         .onAppear {
             viewModel.fetchFavorites(context: modelContext)

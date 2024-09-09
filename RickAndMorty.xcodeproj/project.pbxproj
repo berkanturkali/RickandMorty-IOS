@@ -62,6 +62,7 @@
 		EBF11B822C84F30500D1EF6C /* EpisodeGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B812C84F30500D1EF6C /* EpisodeGridItemView.swift */; };
 		EBF5128C2C8F667300A7E2E4 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */; };
 		EBF5128F2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */; };
+		EBF512922C8F7B8400A7E2E4 /* EmptyFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF512912C8F7B8400A7E2E4 /* EmptyFavoritesView.swift */; };
 		EBFE575D2C8CB704009CF345 /* AllEpisodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */; };
 		EBFE57652C8CD9B4009CF345 /* MainWindowSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		EBF11B812C84F30500D1EF6C /* EpisodeGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeGridItemView.swift; sourceTree = "<group>"; };
 		EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenViewModel.swift; sourceTree = "<group>"; };
+		EBF512912C8F7B8400A7E2E4 /* EmptyFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavoritesView.swift; sourceTree = "<group>"; };
 		EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodesScreen.swift; sourceTree = "<group>"; };
 		EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -468,6 +470,7 @@
 		EBF512892C8F665F00A7E2E4 /* favorites */ = {
 			isa = PBXGroup;
 			children = (
+				EBF512902C8F7B6D00A7E2E4 /* components */,
 				EBF5128A2C8F666800A7E2E4 /* screen */,
 			);
 			path = favorites;
@@ -487,6 +490,14 @@
 				EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */,
 			);
 			path = favorites;
+			sourceTree = "<group>";
+		};
+		EBF512902C8F7B6D00A7E2E4 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				EBF512912C8F7B8400A7E2E4 /* EmptyFavoritesView.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		EBFE57632C8CD91A009CF345 /* Utils */ = {
@@ -605,6 +616,7 @@
 				EBF5128C2C8F667300A7E2E4 /* FavoritesScreen.swift in Sources */,
 				EB02A7172C83703C008D820E /* FilterMenu.swift in Sources */,
 				EB347FE72C82A09F00460C89 /* CharacterGridViewItem.swift in Sources */,
+				EBF512922C8F7B8400A7E2E4 /* EmptyFavoritesView.swift in Sources */,
 				EB02A71E2C837872008D820E /* FilterMenuItem.swift in Sources */,
 				EB02A7232C838372008D820E /* BackButton.swift in Sources */,
 				EBF11B7E2C84EB8000D1EF6C /* EpisodeView.swift in Sources */,

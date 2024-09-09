@@ -33,9 +33,10 @@ class FavoritesScreenViewModel: ObservableObject {
             
             if let entity = results.first {
                 context.delete(entity)
+                fetchFavorites(context: context)
             }
         } catch {
-            print("Error deletin character \(error)")
+            print("Error deleting character \(error)")
         }
     }
     
