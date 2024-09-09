@@ -110,5 +110,22 @@ struct CharacterResponse: Codable, Identifiable, Hashable {
     }
     
     
+    func mapToCharacterEntity() -> CharacterEntity {
+        return CharacterEntity(
+            id: self.id!,
+            name: self.name,
+            status: self.status,
+            species: self.species,
+            origin: OriginEntity(
+                name: self.origin?.name
+            ),
+            location: LocationEntity(
+                name: self.location?.name
+            ),
+            image: self.image
+        )
+    }
+    
+    
     
 }

@@ -6,21 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CharacterDetailsScreen: View {
     
     @Environment(\.isLargeScreen) private var isLargeScreen: Bool
     @Environment(\.mainWindowSize) private var mainWindowSize: CGSize
+    @Environment(\.modelContext) var modelContext: ModelContext
+    
+    @StateObject private var viewModel: CharacterDetailsScreenViewModel = CharacterDetailsScreenViewModel()
     
     let character: CharacterResponse
     
-    @StateObject var viewModel: CharacterDetailsScreenViewModel = CharacterDetailsScreenViewModel()
-    
-    
-    @State var favorited: Bool = false
-    
     @State private var scale: CGFloat = 1.0
-    
     
     var body: some View {
         NavigationStack {
@@ -32,12 +30,12 @@ struct CharacterDetailsScreen: View {
                         
                         BackButton()
                         
-                        Image(systemName: favorited ? "star.fill" : "star")
+                        Image(systemName: viewModel.favorited ? "star.fill" : "star")
                             .foregroundColor(.yellow)
                             .font(isLargeScreen ? .largeTitle : .title2)
                             .scaleEffect(scale)
                             .onTapGesture {
-                                favorited.toggle()
+                                viewModel.favorited.toggle()
                                 withAnimation(.easeInOut(duration: 0.1)) {
                                     scale = 1.2
                                 }
@@ -46,6 +44,11 @@ struct CharacterDetailsScreen: View {
                                     withAnimation(.easeIn(duration: 0.2)) {
                                         scale = 1.0
                                     }
+                                }
+                                if(viewModel.favorited) {
+                                    viewModel.addToFavorites(context: modelContext, character: character)
+                                } else {
+                                    viewModel.removeFromFavorites(context: modelContext, character: character)
                                 }
                             }
                     }
@@ -83,6 +86,16 @@ struct CharacterDetailsScreen: View {
         }
         .toolbar(.hidden, for: .tabBar)
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            let fetchRequest = FetchDescriptor<CharacterEntity>(
+                predicate: #Predicate { $0.id == character.id!}
+            )
+            
+            let matchingCharacters = try? modelContext.fetch(fetchRequest)
+            
+            viewModel.favorited = matchingCharacters?.count ?? 0 > 0
+            
+        }
     }
     
     fileprivate func CharacterDetailsContentForSmallDevices() -> some View {
