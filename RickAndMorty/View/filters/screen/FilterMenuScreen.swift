@@ -10,6 +10,7 @@ import SwiftUI
 struct FilterMenuScreen: View {
     
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.isLargeScreen) private var isLargeScreen
     
     @State var filterMenu: [FilterMenu]
     
@@ -26,6 +27,7 @@ struct FilterMenuScreen: View {
                             BackButton()
                             
                             Image(systemName: "checkmark")
+                                .font(isLargeScreen ? .largeTitle : .title2)
                                 .foregroundColor(isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary)
                                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
                                 .onTapGesture {

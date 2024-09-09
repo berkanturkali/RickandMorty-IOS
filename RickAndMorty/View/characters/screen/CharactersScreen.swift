@@ -36,7 +36,7 @@ struct CharactersScreen: View {
                     }) {
                         
                         Image(systemName: "line.3.horizontal.decrease.circle")
-                            .font(isLargeScreen ? .system(size: 42) : .title)
+                            .font(isLargeScreen ? .largeTitle : .title2)
                             .padding(.horizontal)
                             .padding(.vertical, 4)
                             .foregroundColor(.tabViewSelectedItem)

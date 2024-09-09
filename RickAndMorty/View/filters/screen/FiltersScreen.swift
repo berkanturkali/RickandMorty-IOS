@@ -13,6 +13,8 @@ struct FiltersScreen: View {
         \.dismiss
     ) private var dismiss
     
+    @Environment(\.isLargeScreen) private var isLargeScreen
+    
     @StateObject var viewModel = FiltersScreenViewModel()
     
     @State var isCheckMarkActive: Bool = false
@@ -42,6 +44,7 @@ struct FiltersScreen: View {
                         .foregroundColor(
                             viewModel.isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary
                         )
+                        .font(isLargeScreen ? .largeTitle : .title2)
                         .frame(
                             maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,
                             alignment: .trailing

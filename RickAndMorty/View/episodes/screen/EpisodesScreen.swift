@@ -13,12 +13,10 @@ struct EpisodesScreen: View {
     @Environment(\.mainWindowSize) private var mainWindowSize: CGSize
     
     @StateObject var viewModel = EpisodesScreenViewModel()
-    
-    
-    
+
     var body: some View {
         ZStack {
-            
+            Color.background.ignoresSafeArea()
             ScrollView {
                 if(isLargeScreen) {
                     let columns = Array(
