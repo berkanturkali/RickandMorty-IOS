@@ -280,5 +280,7 @@ struct CharacterDetailsScreen: View {
 }
 
 #Preview {
-    CharacterDetailsScreen(character: CharacterResponse.mockCharacter)
+    let preview = Preview()
+    return CharacterDetailsScreen(character: CharacterResponse.mockCharacter)
+        .modelContainer(preview.container)
 }

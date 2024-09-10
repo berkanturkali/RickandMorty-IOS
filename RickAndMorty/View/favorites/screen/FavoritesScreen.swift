@@ -42,5 +42,7 @@ struct FavoritesScreen: View {
 }
 
 #Preview {
-    FavoritesScreen()
+    let preview = Preview()
+    return FavoritesScreen()
+        .modelContainer(preview.container)
 }

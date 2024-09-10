@@ -63,6 +63,7 @@
 		EBF5128C2C8F667300A7E2E4 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */; };
 		EBF5128F2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */; };
 		EBF512922C8F7B8400A7E2E4 /* EmptyFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF512912C8F7B8400A7E2E4 /* EmptyFavoritesView.swift */; };
+		EBFB4F842C90BA5100AFDAAB /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB4F832C90BA5100AFDAAB /* PreviewContainer.swift */; };
 		EBFE575D2C8CB704009CF345 /* AllEpisodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */; };
 		EBFE57652C8CD9B4009CF345 /* MainWindowSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,7 @@
 		EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenViewModel.swift; sourceTree = "<group>"; };
 		EBF512912C8F7B8400A7E2E4 /* EmptyFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavoritesView.swift; sourceTree = "<group>"; };
+		EBFB4F832C90BA5100AFDAAB /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodesScreen.swift; sourceTree = "<group>"; };
 		EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				EBD4510A2C7E35E600C51774 /* Preview Assets.xcassets */,
+				EBFB4F832C90BA5100AFDAAB /* PreviewContainer.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				EBF11B622C84B6E000D1EF6C /* LocationResponse.swift in Sources */,
 				EBF5128F2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift in Sources */,
 				EB347FD32C82617300460C89 /* CharactersScreen.swift in Sources */,
+				EBFB4F842C90BA5100AFDAAB /* PreviewContainer.swift in Sources */,
 				EBEBDF9E2C8DE6D5001EE25A /* CharacterEntity.swift in Sources */,
 				EBD451022C7E35E500C51774 /* RickAndMortyApp.swift in Sources */,
 				EBF11B672C84CF1B00D1EF6C /* LocationsScreen.swift in Sources */,
