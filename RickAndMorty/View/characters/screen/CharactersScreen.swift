@@ -13,8 +13,10 @@ struct CharactersScreen: View {
     @Environment(\.isLargeScreen) private var isLargeScreen: Bool
     @Environment(\.mainWindowSize) private var mainWindowSize: CGSize
     
+    @Binding var scrollToTop: Bool
+    
     var body: some View {
-        NavigationStack {
+        return NavigationStack {
             ZStack {
                 Color.background.ignoresSafeArea()
                 VStack(spacing: 16) {
@@ -58,26 +60,31 @@ struct CharactersScreen: View {
                     
                     Divider()
                         .padding(.horizontal)
-                    ScrollView {
-                        if(isLargeScreen) {
-                            let columns = Array(
-                                repeating: GridItem(
-                                    .flexible(),
-                                    spacing: 20
-                                ),
-                                count: min(
-                                    5,
-                                    Int(
-                                        mainWindowSize.width / 150
+                    
+                    ScrollViewReader { proxy in
+                        ScrollView {
+                            if(isLargeScreen) {
+                                let columns = Array(
+                                    repeating: GridItem(
+                                        .flexible(),
+                                        spacing: 20
+                                    ),
+                                    count: min(
+                                        5,
+                                        Int(
+                                            mainWindowSize.width / 150
+                                        )
                                     )
                                 )
-                            )
-                            characterGridView(columns: columns)
+                                characterGridView(columns: columns, proxy: proxy)
+                                
+                            } else {
+                                characterVerticalListView(proxy: proxy)
+                            }
                             
-                        } else {
-                            characterVerticalListView()
                         }
                     }
+                    
                 }
                 .padding(.horizontal, 4)
                 .scrollIndicators(.hidden)
@@ -85,7 +92,7 @@ struct CharactersScreen: View {
         }
     }
     
-    func characterGridView(columns: [GridItem]) -> some View {
+    func characterGridView(columns: [GridItem], proxy: ScrollViewProxy) -> some View {
         LazyVGrid(columns: columns, spacing: 24) {
             ForEach(viewModel.characters, id: \.self) { character in
                 NavigationLink(destination: {
@@ -95,16 +102,39 @@ struct CharactersScreen: View {
                 }
             }
         }
+        .onChange(of: scrollToTop) { _, scroll in
+            if(scroll) {
+                withAnimation {
+                    proxy.scrollTo(
+                        viewModel.characters.first
+                    )
+                }
+                scrollToTop = false
+            }
+            
+        }
     }
     
-    func characterVerticalListView() -> some View {
+    func characterVerticalListView(proxy: ScrollViewProxy) -> some View {
         LazyVStack(spacing: 16) {
-            ForEach(viewModel.characters, id:\.self) { character in
+            ForEach(viewModel.characters, id:\.id) { character in
                 NavigationLink(destination: {
                     CharacterDetailsScreen(character: character)
                 }) {
                     CharacterView(character: character)
+                        .id(character.id)
                 }
+            }
+        }
+        .onChange(of: scrollToTop) { _, scroll in
+            if(scroll) {
+                withAnimation {
+                    proxy.scrollTo(
+                        viewModel.characters.first?.id,
+                        anchor: .top
+                    )
+                }
+                scrollToTop = false
             }
         }
     }
@@ -112,7 +142,7 @@ struct CharactersScreen: View {
 
 #Preview {
     NavigationStack {
-        CharactersScreen()
+        CharactersScreen(scrollToTop: .constant(true))
             .environment(\.mainWindowSize, CGSize(width: 600.0, height: 0.0))
             .environment(\.isLargeScreen, true)
     }

@@ -10,15 +10,19 @@ import SwiftData
 
 struct ContentView: View {
     
+    @StateObject var tabStateHandler: TabStateHandler = TabStateHandler()
+    
+    
     init() {
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color.tabViewUnSelectedItem)
         UITabBar.appearance().barTintColor = UIColor(Color.background)
         UITabBar.appearance().backgroundColor = UIColor(Color.background)
     }
     var body: some View {
-        TabView {
+
+        return TabView(selection: tabStateHandler.handler) {
             NavigationView {
-                CharactersScreen()
+                CharactersScreen(scrollToTop: $tabStateHandler.scrollTabToTop)
                 
             }
             .tabItem { Label(
@@ -26,36 +30,43 @@ struct ContentView: View {
                 systemImage: "house"
             )
             }
+            .tag(Tab.characters)
             
             
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
                     LocationsScreen()
+                    
                 }
             }
             .tabItem { Label(
                 LocalizedStrings.locations,
                 systemImage: "mappin.and.ellipse"
             ) }
+            .tag(Tab.locations)
             
             NavigationView {
                 EpisodesScreen()
+                
                 
             }
             .tabItem { Label(
                 LocalizedStrings.episodes,
                 systemImage: "movieclapper"
             ) }
+            .tag(Tab.episodes)
             
             NavigationView {
                 FavoritesScreen()
+                
                 
             }
             .tabItem { Label(
                 LocalizedStrings.favorites,
                 systemImage: "star"
             ) }
+            .tag(Tab.favorites)
         }
         .accentColor(Color.tabViewSelectedItem)
         .navigationViewStyle(StackNavigationViewStyle())
@@ -65,4 +76,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(Preview().container)
 }
