@@ -44,7 +44,7 @@ struct FiltersScreen: View {
                         .foregroundColor(
                             viewModel.isCheckMarkActive ? Color.accentColor : Color.onBackgroundSecondary
                         )
-                        .font(isLargeScreen ? .largeTitle : .title2)
+                        .font(isLargeScreen ? .largeTitle : .title3)
                         .frame(
                             maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,
                             alignment: .trailing

@@ -19,7 +19,7 @@ struct ContentView: View {
         UITabBar.appearance().backgroundColor = UIColor(Color.background)
     }
     var body: some View {
-
+        
         return TabView(selection: tabStateHandler.handler) {
             NavigationView {
                 CharactersScreen(scrollToTop: $tabStateHandler.scrollTabToTop)
@@ -59,7 +59,6 @@ struct ContentView: View {
             
             NavigationView {
                 FavoritesScreen()
-                
                 
             }
             .tabItem { Label(

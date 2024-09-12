@@ -32,7 +32,7 @@ struct CharacterDetailsScreen: View {
                         
                         Image(systemName: viewModel.favorited ? "star.fill" : "star")
                             .foregroundColor(.yellow)
-                            .font(isLargeScreen ? .largeTitle : .title2)
+                            .font(isLargeScreen ? .largeTitle : .title3)
                             .scaleEffect(scale)
                             .onTapGesture {
                                 viewModel.favorited.toggle()
