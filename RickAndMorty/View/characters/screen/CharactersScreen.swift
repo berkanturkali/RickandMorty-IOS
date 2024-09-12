@@ -143,7 +143,7 @@ struct CharactersScreen: View {
 #Preview {
     NavigationStack {
         CharactersScreen(scrollToTop: .constant(true))
-            .environment(\.mainWindowSize, CGSize(width: 600.0, height: 0.0))
-            .environment(\.isLargeScreen, true)
+            .environment(\.mainWindowSize, CGSize(width: 300.0, height: 0.0))
+            .environment(\.isLargeScreen, false)
     }
 }

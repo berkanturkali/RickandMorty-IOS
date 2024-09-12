@@ -11,23 +11,38 @@ struct LocationsScreen: View {
     
     @StateObject var viewModel = LocationsScreenViewModel()
     
+    @Binding var scrollToTop: Bool
+    
     var body: some View {
-        
-        ScrollView {
-            ZStack {
-                Color.background.ignoresSafeArea()
-                LazyVStack(spacing: 16) {
-                    ForEach(viewModel.locations, id:\.self) { location in
-                        LocationView(location: location)
+        ScrollViewReader { proxy in
+            ScrollView {
+                ZStack {
+                    Color.background.ignoresSafeArea()
+                    LazyVStack(spacing: 16) {
+                        ForEach(viewModel.locations, id:\.id) { location in
+                            LocationView(location: location)
+                                .id(location.id)
+                        }
+                    }
+                    .onChange(of: scrollToTop) { _, scroll in
+                        if(scroll) {
+                            withAnimation {
+                                proxy.scrollTo(
+                                    viewModel.locations.first?.id,
+                                    anchor: .top
+                                )
+                            }
+                            scrollToTop = false
+                        }
                     }
                 }
+                .scrollIndicators(.hidden)
             }
-            .scrollIndicators(.hidden)
         }
         .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    LocationsScreen()
+    LocationsScreen(scrollToTop: .constant(false))
 }

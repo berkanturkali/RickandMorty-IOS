@@ -36,7 +36,7 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    LocationsScreen()
+                    LocationsScreen(scrollToTop: $tabStateHandler.scrollTabToTop)
                     
                 }
             }
@@ -47,7 +47,7 @@ struct ContentView: View {
             .tag(Tab.locations)
             
             NavigationView {
-                EpisodesScreen()
+                EpisodesScreen(scrollToTop: $tabStateHandler.scrollTabToTop)
                 
                 
             }
