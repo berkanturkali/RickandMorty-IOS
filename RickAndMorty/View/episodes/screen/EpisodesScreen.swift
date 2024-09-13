@@ -19,30 +19,33 @@ struct EpisodesScreen: View {
     var body: some View {
         ZStack {
             Color.background.ignoresSafeArea()
-            ScrollViewReader { proxy in
-                ScrollView {
-                    if(isLargeScreen) {
-                        let columns = Array(
-                            repeating: GridItem(
-                                .flexible(),
-                                spacing: 10
-                            ),
-                            count: min(
-                                4,
-                                Int(
-                                    mainWindowSize.width / 150
+            if(viewModel.isLoading) {
+                LoadingView()
+            } else {
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        if(isLargeScreen) {
+                            let columns = Array(
+                                repeating: GridItem(
+                                    .flexible(),
+                                    spacing: 10
+                                ),
+                                count: min(
+                                    4,
+                                    Int(
+                                        mainWindowSize.width / 150
+                                    )
                                 )
                             )
-                        )
-                        episodesGridView(columns: columns, proxy: proxy)
-                        
-                    } else {
-                        episodesListView(proxy: proxy)
+                            episodesGridView(columns: columns, proxy: proxy)
+                            
+                        } else {
+                            episodesListView(proxy: proxy)
+                        }
                     }
                 }
             }
         }
-        .navigationBarBackButtonHidden(true)
     }
     
     func episodesGridView(columns: [GridItem], proxy: ScrollViewProxy) -> some View {

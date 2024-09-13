@@ -31,8 +31,7 @@ struct ContentView: View {
             )
             }
             .tag(Tab.characters)
-            
-            
+                    
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
