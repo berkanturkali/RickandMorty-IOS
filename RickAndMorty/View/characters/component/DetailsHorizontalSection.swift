@@ -1,9 +1,4 @@
 //
-//  DetailsHorizontalSection.swift
-//  RickAndMorty
-//
-//  Created by Berkan Turkali on 6.09.2024.
-//
 
 import SwiftUI
 

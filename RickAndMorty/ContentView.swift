@@ -1,9 +1,4 @@
 //
-//  ContentView.swift
-//  RickAndMorty
-//
-//  Created by Berkan Turkali on 27.08.2024.
-//
 
 import SwiftUI
 import SwiftData

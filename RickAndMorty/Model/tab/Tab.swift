@@ -1,9 +1,4 @@
 //
-//  Tab.swift
-//  RickAndMorty
-//
-//  Created by Berkan Turkali on 10.09.2024.
-//
 
 import Foundation
 

@@ -1,9 +1,4 @@
 //
-//  MainWindowSizeKey.swift
-//  RickAndMorty
-//
-//  Created by Berkan Turkali on 7.09.2024.
-//
 
 import Foundation
 import SwiftUI

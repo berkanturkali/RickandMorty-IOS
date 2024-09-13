@@ -1,9 +1,4 @@
 //
-//  FiltersScreenViewModel.swift
-//  RickAndMorty
-//
-//  Created by Berkan Turkali on 3.09.2024.
-//
 
 import Foundation
 

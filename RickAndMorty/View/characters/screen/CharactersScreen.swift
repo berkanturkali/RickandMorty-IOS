@@ -1,9 +1,4 @@
 //
-//  CharactersScreen.swift
-//  RickAndMorty
-//
-//  Created by Berkan Turkali on 30.08.2024.
-//
 
 import SwiftUI
 

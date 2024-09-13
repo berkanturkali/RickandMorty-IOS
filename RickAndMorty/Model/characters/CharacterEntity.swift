@@ -1,9 +1,4 @@
 //
-//  CharacterEntity.swift
-//  RickAndMorty
-//
-//  Created by Berkan Turkali on 8.09.2024.
-//
 
 import Foundation
 import SwiftData
