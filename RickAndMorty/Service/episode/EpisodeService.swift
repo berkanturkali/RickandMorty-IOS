@@ -11,32 +11,14 @@ struct EpisodeService {
     
     func fetchEpisodes() async throws -> BaseApiResponse<EpisodeResponse> {
         let urlString = Constants.episodesEndpoint
-        guard let url = URL(string: urlString) else {
-            throw NetworkError.invalidURL(urlString)
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let episodes = try JSONDecoder().decode(BaseApiResponse<EpisodeResponse>.self, from: data)
-            return episodes
-            
-        } catch {
-            throw NetworkError.requestFailed(error.localizedDescription)
-        }
+        let episodes: BaseApiResponse<EpisodeResponse> = try await ApiManager.fetchData(from: urlString, responseType: BaseApiResponse<EpisodeResponse>.self)
+        return episodes
     }
     
     func fetchEpisode(id: String) async throws -> EpisodeResponse {
         let urlString = Constants.episodesEndpoint + "/\(id)"
-        guard let url = URL(string: urlString) else {
-            throw NetworkError.invalidURL(urlString)
-        }
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let episode = try JSONDecoder().decode(EpisodeResponse.self, from: data)
-            return episode
-        } catch {
-            throw NetworkError.requestFailed(error.localizedDescription)
-        }
+        let episode: EpisodeResponse = try await ApiManager.fetchData(from: urlString, responseType: EpisodeResponse.self)
+        return episode
     }
     
 }

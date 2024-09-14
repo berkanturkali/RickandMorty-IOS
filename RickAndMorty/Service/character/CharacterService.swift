@@ -17,18 +17,8 @@ struct CharacterService {
             Constants.charactersEndpoint
         }
         
-        print("url = ", urlString)
-        
-        guard let url = URL(string: urlString) else {
-            throw NetworkError.invalidURL(urlString)
-        }
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let characters = try JSONDecoder().decode(BaseApiResponse<CharacterResponse>.self, from: data)
-            return characters
-        } catch {
-            throw NetworkError.requestFailed(error.localizedDescription)
-        }
+        let characters: BaseApiResponse<CharacterResponse> = try await ApiManager.fetchData(from: urlString, responseType: BaseApiResponse<CharacterResponse>.self)
+        return characters
     }
     
 }
