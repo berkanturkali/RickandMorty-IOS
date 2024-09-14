@@ -1,6 +1,6 @@
 # RickandMorty Swift UI App
 
-## Techologies & Libraries
+## Technologies & Libraries
 
 + Swift UI
 + Swift Data
