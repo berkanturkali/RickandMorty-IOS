@@ -14,7 +14,7 @@ struct CharactersScreen: View {
         return NavigationStack {
             ZStack {
                 Color.background.ignoresSafeArea()
-                if(viewModel.isLoading) {
+                if(viewModel.isInitialLoad) {
                     LoadingView()
                 } else {
                     VStack(spacing: 16) {
@@ -23,12 +23,11 @@ struct CharactersScreen: View {
                                 var query = ""
                                 menu.forEach { menuItem in
                                     menuItem.selectedValues.forEach { filterItem in
-                                        query +=  "&" + menuItem.queryKey + "=" + filterItem.name
+                                        query +=  "&" + menuItem.queryKey + "=" + filterItem.value
                                     }
                                 }
-                                Task {
-                                    await viewModel.fetchCharacters(query: query)
-                                }
+                            
+                                viewModel.setQuery(query: query)
                                 viewModel.filterMenu = menu
                                 
                             }
@@ -46,7 +45,6 @@ struct CharactersScreen: View {
                                             .frame(width: 10, height: 10)
                                             .foregroundColor(Color.onBackground)
                                             .offset(x: 10, y: -10)
-                                        
                                         
                                     }
                                 }
@@ -121,7 +119,23 @@ struct CharactersScreen: View {
                 }) {
                     CharacterView(character: character)
                         .id(character.id)
+                        .onAppear {
+                            if(character == viewModel.characters.last) {
+                                Task {
+                                    await viewModel.fetchCharacters(filterQuery: viewModel.query)
+                                }
+                            }
+                        }
                 }
+            }
+            if(viewModel.isLoading) {
+                LoadingView()
+                    .padding()
+            }
+        }
+        .onChange(of: viewModel.characters.count) { _, _ in
+            if let lastIndex = viewModel.characters.indices.last {
+                proxy.scrollTo(lastIndex, anchor: .bottom)
             }
         }
         .onChange(of: scrollToTop) { _, scroll in

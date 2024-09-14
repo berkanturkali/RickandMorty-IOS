@@ -11,11 +11,14 @@ struct CharacterService {
     
     func fetchCharacters(query: String? = nil) async throws -> BaseApiResponse<CharacterResponse> {
         
+        
         let urlString = if(query != nil && !query!.isEmpty) {
             Constants.charactersEndpoint + "?" + query!.dropFirst()
         } else {
             Constants.charactersEndpoint
         }
+        
+        print("url string = \(urlString)")
         
         let characters: BaseApiResponse<CharacterResponse> = try await ApiManager.fetchData(from: urlString, responseType: BaseApiResponse<CharacterResponse>.self)
         return characters
