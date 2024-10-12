@@ -16,6 +16,8 @@ struct EpisodesScreen: View {
             Color.background.ignoresSafeArea()
             if(viewModel.isLoading) {
                 LoadingView()
+            } else if(viewModel.errorMessage != nil) {
+                ErrorView(errorMessage: viewModel.errorMessage!)
             } else {
                 ScrollViewReader { proxy in
                     ScrollView {

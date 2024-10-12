@@ -16,7 +16,11 @@ struct CharactersScreen: View {
                 Color.background.ignoresSafeArea()
                 if(viewModel.isInitialLoad) {
                     LoadingView()
-                } else {
+                }
+                else if (viewModel.errorMessage != nil) {
+                    ErrorView(errorMessage: viewModel.errorMessage!)
+                }
+                else {
                     VStack(spacing: 16) {
                         NavigationLink(destination: {
                             FilterMenuScreen(filterMenu: viewModel.filterMenu) { menu in

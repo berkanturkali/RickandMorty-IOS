@@ -47,14 +47,15 @@ class CharactersScreenViewModel: ObservableObject {
             
         } catch {
             errorMessage = ErrorHandler.shared.getErrorMessage(from: error)
-        }
-        
+        }   
         isLoading = false
+        isInitialLoad = false
+
     }
     
     func setQuery(query: String?) {
         resetViewModel()
-        self.query = query        
+        self.query = query
         Task {
             await fetchCharacters(filterQuery: query)
         }

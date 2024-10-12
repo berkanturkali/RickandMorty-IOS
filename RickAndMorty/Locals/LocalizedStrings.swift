@@ -100,6 +100,10 @@ struct LocalizedStrings {
         localizedString(for: "nothing_here")
     }
     
+    static var failedToDecodeErrorMessage: String {
+        localizedString(for: "failed_to_decode_error_message")
+    }
+    
     static func localizedString(for key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }

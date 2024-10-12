@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "(%lld)" : {
 
     },
@@ -88,6 +91,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bölümler"
+          }
+        }
+      }
+    },
+    "failed_to_decode_error_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to decode the response."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Response parse edilemedi."
           }
         }
       }
