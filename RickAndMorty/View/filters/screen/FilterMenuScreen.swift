@@ -42,13 +42,13 @@ struct FilterMenuScreen: View {
                             let menu = filterMenu[index]
                             
                             NavigationLink {
-                                FiltersScreen(selectedFilters: menu.selectedValues,
+                                FiltersScreen(selectedFilter: menu.selectedValue,
                                               title: menu.title,
                                               filters: menu.filters,
-                                              previousSelectedItems: menu.selectedValues,
-                                              onApplyButtonClick: { filters in
-                                    isCheckMarkActive = filterMenu[index].selectedValues.map{  $0.name } != filters.map{ $0.name }
-                                    filterMenu[index].selectedValues = filters
+                                              previousSelectedItem: menu.selectedValue,
+                                              onApplyButtonClick: { filter in
+                                    isCheckMarkActive = filterMenu[index].selectedValue?.name != filter?.name
+                                    filterMenu[index].selectedValue = filter
                                     
                                 })
                             } label: {

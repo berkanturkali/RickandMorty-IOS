@@ -13,15 +13,15 @@ struct FiltersScreen: View {
     @StateObject var viewModel = FiltersScreenViewModel()
     
     @State var isCheckMarkActive: Bool = false
-    @State var selectedFilters: [FilterItem] = []
+    @State var selectedFilter: FilterItem?
     let title: String
     let filters: [FilterItem]
     
-    let previousSelectedItems: [FilterItem]
+    let previousSelectedItem: FilterItem?
     
     
     let onApplyButtonClick: (
-        [FilterItem]
+        FilterItem?
     ) -> Void
     
     
@@ -45,7 +45,7 @@ struct FiltersScreen: View {
                             alignment: .trailing
                         ).onTapGesture {
                             onApplyButtonClick(
-                                selectedFilters
+                                selectedFilter
                             )
                             dismiss()
                         }
@@ -71,22 +71,21 @@ struct FiltersScreen: View {
                         filters.indices,
                         id: \.self
                     ) { index in
+               
                         FilterItemView(
-                            isSelected: setIsSelectedOfFilterItemView(
-                                index: index
-                            ),
+                            isSelected: .constant(filters[index].name == selectedFilter?.name),
                             filterItem: filters[index]
                         ) { item in
-                            
-                            if let indexOfTheItem = selectedFilters.firstIndex(where: { $0.name == item.name }) {
-                                selectedFilters.remove(at: indexOfTheItem)
+
+                            if item.name == selectedFilter?.name {
+                                selectedFilter = nil
                             } else {
-                                selectedFilters.append(item)
+                                selectedFilter = item
                             }
                             
                             viewModel.setIsCheckMarkActive(
-                                selectedFilters: selectedFilters,
-                                previouslySelectedFilters: previousSelectedItems
+                                selectedFilter: selectedFilter,
+                                previouslySelectedFilter: previousSelectedItem
                             )
                         }
                     }
@@ -95,28 +94,16 @@ struct FiltersScreen: View {
             .navigationBarBackButtonHidden()
         }
     }
-    
-    
-    private func setIsSelectedOfFilterItemView(
-        index: Int
-    ) -> Bool {
-        let filterItem = filters[index]
-        let set = Set(
-            selectedFilters
-        )
-        return set.contains{
-            $0.name == filterItem.name
-        }
-    }
 }
 
 #Preview {
+
     FiltersScreen(
+        isCheckMarkActive: true,
         title: LocalizedStrings.filters,
         filters: CharacterFilters.filters.first!.filters,
-        previousSelectedItems: [],
+        previousSelectedItem: nil,
         onApplyButtonClick: {
             _ in
-        }
-    )
+        })
 }

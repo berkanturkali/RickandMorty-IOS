@@ -26,11 +26,11 @@ struct CharactersScreen: View {
                             FilterMenuScreen(filterMenu: viewModel.filterMenu) { menu in
                                 var query = ""
                                 menu.forEach { menuItem in
-                                    menuItem.selectedValues.forEach { filterItem in
-                                        query +=  "&" + menuItem.queryKey + "=" + filterItem.value
+                                    if(menuItem.selectedValue != nil) {
+                                        query +=  "&" + menuItem.queryKey + "=" + menuItem.selectedValue!.value
                                     }
                                 }
-                            
+                                
                                 viewModel.setQuery(query: query)
                                 viewModel.filterMenu = menu
                                 
@@ -43,8 +43,8 @@ struct CharactersScreen: View {
                                 .padding(.vertical, 4)
                                 .foregroundColor(.tabViewSelectedItem)
                                 .overlay {
-                                    let hasNonEmptySelectedValues = viewModel.filterMenu.contains { !$0.selectedValues.isEmpty }
-                                    if(hasNonEmptySelectedValues) {
+                                    let isFilterApplied = viewModel.filterMenu.contains { !($0.selectedValue == nil) }
+                                    if(isFilterApplied) {
                                         Circle()
                                             .frame(width: 10, height: 10)
                                             .foregroundColor(Color.onBackground)

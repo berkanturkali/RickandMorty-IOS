@@ -16,7 +16,7 @@ struct FilterMenuItem: View {
                     .font(.headline)
                 
                 Spacer()
-                Text(mapSelectedFiltersToString())
+                Text(filterMenu.selectedValue?.name ?? "")
                     .font(.callout)
                     .foregroundColor(Color.onBackgroundSecondary)
             }
@@ -27,19 +27,14 @@ struct FilterMenuItem: View {
             Divider()
         }
     }
-    
-    private func mapSelectedFiltersToString() -> String {
-        return filterMenu.selectedValues.map({ item in
-            item.name
-        }).joined(separator: ", ")
-    }
+
 }
 
 #Preview {
     FilterMenuItem(
         filterMenu: FilterMenu(
             title: LocalizedStrings.statusFilterTitle,
-            selectedValues: [],
+            selectedValue: nil,
             filters: [],
             queryKey: ""
         )
