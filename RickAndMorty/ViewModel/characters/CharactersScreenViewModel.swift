@@ -16,6 +16,8 @@ class CharactersScreenViewModel: ObservableObject {
     
     @Published var isInitialLoad = true
     
+    @Published var selectedApiType = ApiType.rest
+    
     var query: String? = nil
     
     private let charactersService = CharacterService.shared

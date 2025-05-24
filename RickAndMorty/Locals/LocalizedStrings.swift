@@ -104,8 +104,20 @@ struct LocalizedStrings {
         localizedString(for: "failed_to_decode_error_message")
     }
     
+    static var rest: String {
+        localizedString(for: "rest")
+    }
+    
+    static var graphql: String {
+        localizedString(for: "graphql")
+    }
+    
+    static var apiTypes: String {
+        localizedString(for: "api_types")
+    }
+    
     static func localizedString(for key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }
-
+    
 }

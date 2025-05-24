@@ -22,39 +22,54 @@ struct CharactersScreen: View {
                 }
                 else {
                     VStack(spacing: 16) {
-                        NavigationLink(destination: {
-                            FilterMenuScreen(filterMenu: viewModel.filterMenu) { menu in
-                                var query = ""
-                                menu.forEach { menuItem in
-                                    if(menuItem.selectedValue != nil) {
-                                        query +=  "&" + menuItem.queryKey + "=" + menuItem.selectedValue!.value
+                            HStack(spacing: 20) {
+                                
+                                NavigationLink(destination: {
+                                    ApiTypesScreen(previousSelectedItem: viewModel.selectedApiType) { type in
+                                        viewModel.selectedApiType = type ?? .rest
                                     }
+                                }) {
+                                    
+                                    Image(systemName: "network")
+                                        .font(isLargeScreen ? .largeTitle : .title2)
+                                        .padding(.vertical, 4)
+                                        .foregroundColor(.tabViewSelectedItem)
+                                    
                                 }
                                 
-                                viewModel.setQuery(query: query)
-                                viewModel.filterMenu = menu
-                                
-                            }
-                        }) {
-                            
-                            Image(systemName: "line.3.horizontal.decrease.circle")
-                                .font(isLargeScreen ? .largeTitle : .title2)
-                                .padding(.horizontal)
-                                .padding(.vertical, 4)
-                                .foregroundColor(.tabViewSelectedItem)
-                                .overlay {
-                                    let isFilterApplied = viewModel.filterMenu.contains { !($0.selectedValue == nil) }
-                                    if(isFilterApplied) {
-                                        Circle()
-                                            .frame(width: 10, height: 10)
-                                            .foregroundColor(Color.onBackground)
-                                            .offset(x: 10, y: -10)
+                                NavigationLink(destination: {
+                                    FilterMenuScreen(filterMenu: viewModel.filterMenu) { menu in
+                                        var query = ""
+                                        menu.forEach { menuItem in
+                                            if(menuItem.selectedValue != nil) {
+                                                query +=  "&" + menuItem.queryKey + "=" + menuItem.selectedValue!.value
+                                            }
+                                        }
+                                        
+                                        viewModel.setQuery(query: query)
+                                        viewModel.filterMenu = menu
                                         
                                     }
+                                }) {
+                                    Image(systemName: "line.3.horizontal.decrease.circle")
+                                        .font(isLargeScreen ? .largeTitle : .title2)
+                                        .padding(.vertical, 4)
+                                        .foregroundColor(.tabViewSelectedItem)
+                                        .overlay {
+                                            let isFilterApplied = viewModel.filterMenu.contains { !($0.selectedValue == nil) }
+                                            if(isFilterApplied) {
+                                                Circle()
+                                                    .frame(width: 10, height: 10)
+                                                    .foregroundColor(Color.onBackground)
+                                                    .offset(x: 10, y: -10)
+                                                
+                                            }
+                                        }
                                 }
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                            }
+                            .padding(.horizontal)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                             
-                        }
                         
                         
                         Divider()

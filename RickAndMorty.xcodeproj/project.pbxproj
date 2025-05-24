@@ -66,11 +66,14 @@
 		EBF5128C2C8F667300A7E2E4 /* FavoritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */; };
 		EBF5128F2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */; };
 		EBF512922C8F7B8400A7E2E4 /* EmptyFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF512912C8F7B8400A7E2E4 /* EmptyFavoritesView.swift */; };
+		EBF69FB22DD8DDE3002D17C1 /* ApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69FB12DD8DDDD002D17C1 /* ApiType.swift */; };
+		EBF69FB62DD8E14F002D17C1 /* ApiTypesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF69FB52DD8E14F002D17C1 /* ApiTypesScreen.swift */; };
 		EBFB4F842C90BA5100AFDAAB /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB4F832C90BA5100AFDAAB /* PreviewContainer.swift */; };
 		EBFB4F872C90D74800AFDAAB /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB4F862C90D74800AFDAAB /* Tab.swift */; };
 		EBFB4F892C90D77E00AFDAAB /* TabStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFB4F882C90D77E00AFDAAB /* TabStateHandler.swift */; };
 		EBFE575D2C8CB704009CF345 /* AllEpisodesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */; };
 		EBFE57652C8CD9B4009CF345 /* MainWindowSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */; };
+		EBFFD42C2DDFAACA00B96F44 /* ApiTypeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFFD42B2DDFAACA00B96F44 /* ApiTypeItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,11 +136,14 @@
 		EBF5128B2C8F667300A7E2E4 /* FavoritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreen.swift; sourceTree = "<group>"; };
 		EBF5128E2C8F66BB00A7E2E4 /* FavoritesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesScreenViewModel.swift; sourceTree = "<group>"; };
 		EBF512912C8F7B8400A7E2E4 /* EmptyFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavoritesView.swift; sourceTree = "<group>"; };
+		EBF69FB12DD8DDDD002D17C1 /* ApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiType.swift; sourceTree = "<group>"; };
+		EBF69FB52DD8E14F002D17C1 /* ApiTypesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypesScreen.swift; sourceTree = "<group>"; };
 		EBFB4F832C90BA5100AFDAAB /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		EBFB4F862C90D74800AFDAAB /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		EBFB4F882C90D77E00AFDAAB /* TabStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStateHandler.swift; sourceTree = "<group>"; };
 		EBFE575C2C8CB704009CF345 /* AllEpisodesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodesScreen.swift; sourceTree = "<group>"; };
 		EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSizeKey.swift; sourceTree = "<group>"; };
+		EBFFD42B2DDFAACA00B96F44 /* ApiTypeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypeItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +199,7 @@
 		EB347FAC2C82236F00460C89 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EBF69FB02DD8DDB1002D17C1 /* api */,
 				EBFB4F852C90D73A00AFDAAB /* tab */,
 				EBF11B722C84E23F00D1EF6C /* episodes */,
 				EBF11B602C84B6CA00D1EF6C /* locations */,
@@ -207,6 +214,7 @@
 		EB347FAD2C82237500460C89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EBF69FB32DD8E105002D17C1 /* apitypes */,
 				EBF512892C8F665F00A7E2E4 /* favorites */,
 				EBF11B752C84E8F300D1EF6C /* episodes */,
 				EBF11B632C84CEF700D1EF6C /* locations */,
@@ -525,6 +533,32 @@
 			path = components;
 			sourceTree = "<group>";
 		};
+		EBF69FB02DD8DDB1002D17C1 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69FB12DD8DDDD002D17C1 /* ApiType.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		EBF69FB32DD8E105002D17C1 /* apitypes */ = {
+			isa = PBXGroup;
+			children = (
+				EBFFD42D2DDFBD8D00B96F44 /* model */,
+				EBFFD42A2DDFAAB100B96F44 /* components */,
+				EBF69FB42DD8E11A002D17C1 /* screen */,
+			);
+			path = apitypes;
+			sourceTree = "<group>";
+		};
+		EBF69FB42DD8E11A002D17C1 /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				EBF69FB52DD8E14F002D17C1 /* ApiTypesScreen.swift */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
 		EBFB4F852C90D73A00AFDAAB /* tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +574,21 @@
 				EBFE57642C8CD9B4009CF345 /* MainWindowSizeKey.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		EBFFD42A2DDFAAB100B96F44 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				EBFFD42B2DDFAACA00B96F44 /* ApiTypeItemView.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		EBFFD42D2DDFBD8D00B96F44 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -636,6 +685,7 @@
 				EB02A7202C837C42008D820E /* FilterMenuScreen.swift in Sources */,
 				EBF11B712C84E20C00D1EF6C /* EpisodeService.swift in Sources */,
 				EB347FDA2C82682400460C89 /* LastKnownLocationSection.swift in Sources */,
+				EBF69FB62DD8E14F002D17C1 /* ApiTypesScreen.swift in Sources */,
 				EBD451042C7E35E500C51774 /* ContentView.swift in Sources */,
 				EB347FEC2C82AE8E00460C89 /* FilterItem.swift in Sources */,
 				EB02A7252C8387FE008D820E /* FilterItemView.swift in Sources */,
@@ -648,11 +698,13 @@
 				EBDEBFBC2C8B65C4003DEBAF /* CharacterLocation.swift in Sources */,
 				EBA45A2E2C9498200088EB96 /* LoadingView.swift in Sources */,
 				EBB09C2D2C87A0FF00B57D94 /* FiltersScreenViewModel.swift in Sources */,
+				EBFFD42C2DDFAACA00B96F44 /* ApiTypeItemView.swift in Sources */,
 				EBF11B822C84F30500D1EF6C /* EpisodeGridItemView.swift in Sources */,
 				EBFB4F872C90D74800AFDAAB /* Tab.swift in Sources */,
 				EBF5128C2C8F667300A7E2E4 /* FavoritesScreen.swift in Sources */,
 				EB02A7172C83703C008D820E /* FilterMenu.swift in Sources */,
 				EB347FE72C82A09F00460C89 /* CharacterGridViewItem.swift in Sources */,
+				EBF69FB22DD8DDE3002D17C1 /* ApiType.swift in Sources */,
 				EBF512922C8F7B8400A7E2E4 /* EmptyFavoritesView.swift in Sources */,
 				EB02A71E2C837872008D820E /* FilterMenuItem.swift in Sources */,
 				EB02A7232C838372008D820E /* BackButton.swift in Sources */,

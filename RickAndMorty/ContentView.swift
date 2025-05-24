@@ -31,7 +31,6 @@ struct ContentView: View {
                 ZStack {
                     Color.background.ignoresSafeArea()
                     LocationsScreen(scrollToTop: $tabStateHandler.scrollTabToTop)
-                    
                 }
             }
             .tabItem { Label(

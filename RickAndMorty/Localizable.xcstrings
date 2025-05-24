@@ -7,6 +7,23 @@
     "(%lld)" : {
 
     },
+    "api_types" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "API Types"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "API Tipleri"
+          }
+        }
+      }
+    },
     "characters" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -231,6 +248,17 @@
         }
       }
     },
+    "graphql" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GraphQL"
+          }
+        }
+      }
+    },
     "invalid_url_error_message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -329,6 +357,17 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Burada bir şey yok."
+          }
+        }
+      }
+    },
+    "rest" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REST"
           }
         }
       }
