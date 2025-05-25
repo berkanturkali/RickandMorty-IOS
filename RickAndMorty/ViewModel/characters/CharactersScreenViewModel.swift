@@ -1,5 +1,7 @@
 //
 import Foundation
+import Combine
+import RickAndMortyAPI
 
 @MainActor
 class CharactersScreenViewModel: ObservableObject {
@@ -22,14 +24,24 @@ class CharactersScreenViewModel: ObservableObject {
     
     private let charactersService = CharacterService.shared
     
+    private let apollo = Network.shared.apollo
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
-        Task {
-            await fetchCharacters()
-        }
+        $selectedApiType
+            .sink { newType in
+                self.page = 1
+                self.characters.removeAll()
+                Task {
+                    await self.fetchCharacters(apiType: newType)
+                }
+            }
+            .store(in: &cancellables)
+        
     }
     
-    func fetchCharacters(filterQuery: String? = nil) async {
+    func fetchCharacters(apiType: ApiType, filterQuery: String? = nil) async {
         guard !isLoading else { return }
         isLoading = true
         errorMessage = nil
@@ -40,26 +52,70 @@ class CharactersScreenViewModel: ObservableObject {
             } else {
                 "?page=\(page)"
             }
+            switch apiType {
+            case .rest:
+                let response = try await charactersService.fetchCharacters(query: query).results
+                
+                self.characters.append(contentsOf: response)
+                break
+            case .graphql:
+                apollo.fetch(query: CharactersQuery(page: page)) { result in
+                    switch result {
+                    case .success(let graphQLResponse):
+                        guard let results = graphQLResponse.data?.characters?.results else {
+                            return
+                        }
+                        
+                        var mappedCharacters: [CharacterResponse] = []
+                        
+                        for result in results {
+                            guard let result = result else { continue }
+                            
+                            let character = CharacterResponse(
+                                id: Int(result.id ?? "0"),
+                                name: result.name ?? "",
+                                status: result.status,
+                                species: result.species ?? "",
+                                origin: CharacterResponse.Origin(
+                                    name: result.origin?.name ?? "",
+                                    url: nil
+                                ),
+                                location: CharacterResponse.Location(
+                                    name: result.location?.name ?? "",
+                                    url: nil
+                                ),
+                                image: result.image ?? "",
+                                episode: []
+                            )
+                            
+                            mappedCharacters.append(character)
+                        }
+                        
+                        self.characters.append(contentsOf: mappedCharacters)
+                        break
+                    case .failure(let error):
+                        print("Error fetching data: \(error)")
+                        break
+                    }
+                }
+            }
             
-            let response = try await charactersService.fetchCharacters(query: query).results
-            
-            self.characters.append(contentsOf: response)
             self.page += 1
             self.isInitialLoad = false
             
         } catch {
             errorMessage = ErrorHandler.shared.getErrorMessage(from: error)
-        }   
+        }
         isLoading = false
         isInitialLoad = false
-
+        
     }
     
     func setQuery(query: String?) {
         resetViewModel()
         self.query = query
         Task {
-            await fetchCharacters(filterQuery: query)
+            await fetchCharacters(apiType: selectedApiType, filterQuery: query)
         }
     }
     

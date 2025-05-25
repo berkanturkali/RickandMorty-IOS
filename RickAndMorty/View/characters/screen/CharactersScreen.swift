@@ -141,7 +141,9 @@ struct CharactersScreen: View {
                         .onAppear {
                             if(character == viewModel.characters.last) {
                                 Task {
-                                    await viewModel.fetchCharacters(filterQuery: viewModel.query)
+                                    await viewModel.fetchCharacters(
+                                        apiType: viewModel.selectedApiType,
+                                        filterQuery: viewModel.query)
                                 }
                             }
                         }

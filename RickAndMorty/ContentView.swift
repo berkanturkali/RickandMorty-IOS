@@ -52,7 +52,6 @@ struct ContentView: View {
             
             NavigationView {
                 FavoritesScreen()
-                
             }
             .tabItem { Label(
                 LocalizedStrings.favorites,

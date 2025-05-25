@@ -1,0 +1,19 @@
+query Characters(
+    $page: Int!
+) {
+    characters(page: $page) {
+        results {
+            id
+            name
+            status
+            species
+            image
+            origin {
+                name
+            }
+            location {
+                name
+            }
+        }
+    }
+}
