@@ -28,9 +28,11 @@ class CharactersScreenViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init() {
+    init(appState: AppState) {
         $selectedApiType
+            .removeDuplicates()
             .sink { newType in
+                appState.selectedApiType = newType
                 self.page = 1
                 self.characters.removeAll()
                 Task {
@@ -38,7 +40,6 @@ class CharactersScreenViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
-        
     }
     
     func fetchCharacters(apiType: ApiType, filterQuery: String? = nil) async {
@@ -76,6 +77,7 @@ class CharactersScreenViewModel: ObservableObject {
                                 name: result.name ?? "",
                                 status: result.status,
                                 species: result.species ?? "",
+                                gender: result.gender,
                                 origin: CharacterResponse.Origin(
                                     name: result.origin?.name ?? "",
                                     url: nil
@@ -85,7 +87,9 @@ class CharactersScreenViewModel: ObservableObject {
                                     url: nil
                                 ),
                                 image: result.image ?? "",
-                                episode: []
+                                episode: result.episode.map({ episode in
+                                    episode?.id
+                                })
                             )
                             
                             mappedCharacters.append(character)

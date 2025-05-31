@@ -6,8 +6,12 @@ query Characters(
             id
             name
             status
+            gender
             species
             image
+            episode {
+                id
+            }
             origin {
                 name
             }

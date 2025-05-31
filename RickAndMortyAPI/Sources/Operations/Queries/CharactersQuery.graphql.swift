@@ -7,7 +7,7 @@ public class CharactersQuery: GraphQLQuery {
   public static let operationName: String = "Characters"
   public static let operationDocument: ApolloAPI.OperationDocument = .init(
     definition: .init(
-      #"query Characters($page: Int!) { characters(page: $page) { __typename results { __typename id name status species image origin { __typename name } location { __typename name } } } }"#
+      #"query Characters($page: Int!) { characters(page: $page) { __typename results { __typename id name status gender species image episode { __typename id } origin { __typename name } location { __typename name } } } }"#
     ))
 
   public var page: Int
@@ -58,8 +58,10 @@ public class CharactersQuery: GraphQLQuery {
           .field("id", RickAndMortyAPI.ID?.self),
           .field("name", String?.self),
           .field("status", String?.self),
+          .field("gender", String?.self),
           .field("species", String?.self),
           .field("image", String?.self),
+          .field("episode", [Episode?].self),
           .field("origin", Origin?.self),
           .field("location", Location?.self),
         ] }
@@ -70,15 +72,36 @@ public class CharactersQuery: GraphQLQuery {
         public var name: String? { __data["name"] }
         /// The status of the character ('Alive', 'Dead' or 'unknown').
         public var status: String? { __data["status"] }
+        /// The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
+        public var gender: String? { __data["gender"] }
         /// The species of the character.
         public var species: String? { __data["species"] }
         /// Link to the character's image.
         /// All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
         public var image: String? { __data["image"] }
+        /// Episodes in which this character appeared.
+        public var episode: [Episode?] { __data["episode"] }
         /// The character's origin location
         public var origin: Origin? { __data["origin"] }
         /// The character's last known location
         public var location: Location? { __data["location"] }
+
+        /// Characters.Result.Episode
+        ///
+        /// Parent Type: `Episode`
+        public struct Episode: RickAndMortyAPI.SelectionSet {
+          public let __data: DataDict
+          public init(_dataDict: DataDict) { __data = _dataDict }
+
+          public static var __parentType: any ApolloAPI.ParentType { RickAndMortyAPI.Objects.Episode }
+          public static var __selections: [ApolloAPI.Selection] { [
+            .field("__typename", String.self),
+            .field("id", RickAndMortyAPI.ID?.self),
+          ] }
+
+          /// The id of the episode.
+          public var id: RickAndMortyAPI.ID? { __data["id"] }
+        }
 
         /// Characters.Result.Origin
         ///

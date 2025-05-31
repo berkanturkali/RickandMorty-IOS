@@ -15,4 +15,6 @@ struct Constants {
     
     static let episodesEndpoint = baseURL + "episode"
     
+    static let apiTypeKey = "apiType"
+    
 }

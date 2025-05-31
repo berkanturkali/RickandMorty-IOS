@@ -1,6 +1,6 @@
 //
 
-enum ApiType: CaseIterable {
+enum ApiType: String, CaseIterable {
     case rest
     case graphql
     

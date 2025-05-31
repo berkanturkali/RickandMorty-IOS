@@ -8,6 +8,8 @@ struct RickAndMortyApp: App {
     
     let container: ModelContainer
     
+    @StateObject var appState = AppState()
+    
     var body: some Scene {
         
         WindowGroup {
@@ -16,6 +18,7 @@ struct RickAndMortyApp: App {
                     .environment(\.mainWindowSize, proxy.size)
                     .environment(\.isLargeScreen, proxy.size.width > 400)
                     .modelContainer(container)
+                    .environmentObject(appState)
             }
         }
     }

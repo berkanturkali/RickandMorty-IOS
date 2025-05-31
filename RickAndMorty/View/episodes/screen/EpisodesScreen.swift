@@ -7,9 +7,14 @@ struct EpisodesScreen: View {
     @Environment(\.isLargeScreen) private var isLargeScreen: Bool
     @Environment(\.mainWindowSize) private var mainWindowSize: CGSize
     
-    @StateObject var viewModel = EpisodesScreenViewModel()
+    @StateObject var viewModel: EpisodesScreenViewModel
     
     @Binding var scrollToTop: Bool
+    
+    init(scrollToTop: Binding<Bool>, appState: AppState) {
+        _scrollToTop = scrollToTop
+        _viewModel = StateObject(wrappedValue: EpisodesScreenViewModel(appState: appState))
+    }
     
     var body: some View {
         ZStack {
@@ -42,6 +47,9 @@ struct EpisodesScreen: View {
                     }
                 }
             }
+        }
+        .onAppear() {
+    
         }
     }
     
@@ -87,5 +95,5 @@ struct EpisodesScreen: View {
 }
 
 #Preview {
-    EpisodesScreen(scrollToTop: .constant(false))
+    EpisodesScreen(scrollToTop: .constant(false), appState: AppState())
 }

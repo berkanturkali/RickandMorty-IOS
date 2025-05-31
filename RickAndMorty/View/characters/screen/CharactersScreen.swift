@@ -4,11 +4,16 @@ import SwiftUI
 
 struct CharactersScreen: View {
     
-    @StateObject var viewModel = CharactersScreenViewModel()
+    @StateObject var viewModel: CharactersScreenViewModel
     @Environment(\.isLargeScreen) private var isLargeScreen: Bool
     @Environment(\.mainWindowSize) private var mainWindowSize: CGSize
     
     @Binding var scrollToTop: Bool
+    
+    init(scrollToTop: Binding<Bool>, appState: AppState) {
+        _scrollToTop = scrollToTop
+        _viewModel = StateObject(wrappedValue: CharactersScreenViewModel(appState: appState))
+    }
     
     var body: some View {
         return NavigationStack {
@@ -24,8 +29,16 @@ struct CharactersScreen: View {
                     VStack(spacing: 16) {
                             HStack(spacing: 20) {
                                 
-                                NavigationLink(destination: {
-                                    ApiTypesScreen(previousSelectedItem: viewModel.selectedApiType) { type in
+                                NavigationLink(
+                                    destination: {
+                                        ApiTypesScreen(
+                                            previousSelectedItem: viewModel.selectedApiType
+                                        ) { type in
+                                            UserDefaults.standard
+                                                .set(
+                                                    type?.displayName,
+                                                    forKey: Constants.apiTypeKey
+                                                )
                                         viewModel.selectedApiType = type ?? .rest
                                     }
                                 }) {
@@ -175,7 +188,7 @@ struct CharactersScreen: View {
 
 #Preview {
     NavigationStack {
-        CharactersScreen(scrollToTop: .constant(true))
+        CharactersScreen(scrollToTop: .constant(true), appState: AppState())
             .environment(\.mainWindowSize, CGSize(width: 300.0, height: 0.0))
             .environment(\.isLargeScreen, false)
     }

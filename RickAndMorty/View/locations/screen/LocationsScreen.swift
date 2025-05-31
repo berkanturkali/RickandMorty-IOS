@@ -4,9 +4,14 @@ import SwiftUI
 
 struct LocationsScreen: View {
     
-    @StateObject var viewModel = LocationsScreenViewModel()
+    @StateObject var viewModel: LocationsScreenViewModel
     
     @Binding var scrollToTop: Bool
+    
+    init(scrollToTop: Binding<Bool>, appState: AppState) {
+        _scrollToTop = scrollToTop
+        _viewModel = StateObject(wrappedValue: LocationsScreenViewModel(appState: appState))
+    }
     
     var body: some View {
         ZStack {
@@ -48,5 +53,5 @@ struct LocationsScreen: View {
 }
 
 #Preview {
-    LocationsScreen(scrollToTop: .constant(false))
+    LocationsScreen(scrollToTop: .constant(false), appState: AppState())
 }

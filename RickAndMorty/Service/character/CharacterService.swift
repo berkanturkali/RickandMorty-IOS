@@ -11,7 +11,6 @@ struct CharacterService {
     
     func fetchCharacters(query: String? = nil) async throws -> BaseApiResponse<CharacterResponse> {
         
-        
         let urlString = if(query != nil && !query!.isEmpty) {
             Constants.charactersEndpoint + "?" + query!.dropFirst()
         } else {

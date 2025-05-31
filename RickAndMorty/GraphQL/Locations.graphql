@@ -1,0 +1,11 @@
+query Locations(
+    $page: Int!
+){
+    locations(page: $page) {
+        results {
+            id
+            name
+            type
+        }
+    }
+}

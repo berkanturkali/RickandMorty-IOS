@@ -11,8 +11,4 @@ class Network {
     private init() {
         apollo = ApolloClient(url: URL(string: Constants.graphqlBaseURL)!)
     }
-    
-    
-    
-    
 }

@@ -5,6 +5,8 @@ import SwiftData
 
 struct ContentView: View {
     
+    @EnvironmentObject var appState: AppState
+    
     @StateObject var tabStateHandler: TabStateHandler = TabStateHandler()
     
     
@@ -17,7 +19,7 @@ struct ContentView: View {
         
         return TabView(selection: tabStateHandler.handler) {
             NavigationView {
-                CharactersScreen(scrollToTop: $tabStateHandler.scrollTabToTop)
+                CharactersScreen(scrollToTop: $tabStateHandler.scrollTabToTop, appState: appState)
                 
             }
             .tabItem { Label(
@@ -30,7 +32,8 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     Color.background.ignoresSafeArea()
-                    LocationsScreen(scrollToTop: $tabStateHandler.scrollTabToTop)
+                    LocationsScreen(scrollToTop: $tabStateHandler.scrollTabToTop,
+                                    appState: appState)
                 }
             }
             .tabItem { Label(
@@ -40,9 +43,8 @@ struct ContentView: View {
             .tag(Tab.locations)
             
             NavigationView {
-                EpisodesScreen(scrollToTop: $tabStateHandler.scrollTabToTop)
-                
-                
+                EpisodesScreen(scrollToTop: $tabStateHandler.scrollTabToTop, appState: appState)
+
             }
             .tabItem { Label(
                 LocalizedStrings.episodes,
@@ -68,4 +70,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(Preview().container)
+        .environmentObject(AppState())
 }
